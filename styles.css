@@ -80,6 +80,12 @@ body.dark-mode .navbar {
     font-size: 1.5rem;
     font-weight: 700;
     color: var(--text-primary);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.nav-brand:hover {
+    color: var(--primary-color);
 }
 
 .nav-menu {
@@ -389,12 +395,42 @@ body.dark-mode .section-title {
     margin: 0 auto 4rem;
 }
 
+/* Story Card */
+.story-card {
+    background: var(--card-bg);
+    border-radius: 12px;
+    padding: 3rem;
+    margin-bottom: 4rem;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    border: 1px solid var(--border-color);
+    transition: box-shadow 0.3s ease;
+}
+
+.story-content {
+    max-width: 100%;
+    margin: 0;
+}
+
 .story-content p {
     font-size: 1.0625rem;
     line-height: 1.8;
     color: var(--text-primary);
     margin-bottom: 1.5rem;
     text-align: justify;
+}
+
+.story-content p:last-child {
+    margin-bottom: 0;
+}
+
+@media (max-width: 768px) {
+    .story-card {
+        padding: 2rem;
+    }
+    
+    .story-content p {
+        text-align: left;
+    }
 }
 
 .story-content p:last-child {
@@ -969,6 +1005,50 @@ body.dark-mode .blog-title {
     color: white;
     text-align: center;
     padding: 2rem 0;
+}
+
+.footer-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    font-size: 0.95rem;
+}
+
+.footer-text {
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.footer-kiro-link {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    color: var(--primary-color);
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    padding: 0.25rem 0.5rem;
+    border-radius: 6px;
+}
+
+.footer-kiro-link:hover {
+    color: #FFFFFF;
+    background-color: var(--primary-color);
+    transform: translateY(-2px);
+}
+
+.footer-kiro-icon {
+    width: 20px;
+    height: 20px;
+    transition: transform 0.3s ease;
+}
+
+.footer-kiro-link:hover .footer-kiro-icon {
+    transform: rotate(10deg) scale(1.1);
+}
+
+.footer-kiro-text {
+    font-size: 1rem;
 }
 
 /* Responsive Design */
