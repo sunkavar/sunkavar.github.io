@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Raviteja Sunkavalli - AWS Solutions Architect specializing in Cloud Operations, AI Observability, and Systems Management">
+    <meta name="author" content="Raviteja Sunkavalli">
+    <meta name="keywords" content="AWS, Solutions Architect, Cloud Operations, AI Observability, Systems Manager, CloudWatch, Bedrock, AgentCore">
+    <title>Raviteja Sunkavalli | AWS Solutions Architect</title>
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-brand">Raviteja Sunkavalli</div>
+            <ul class="nav-menu">
+                <li><a href="#about" class="nav-link active">About</a></li>
+                <li><a href="#speaking" class="nav-link">Speaking Events</a></li>
+                <li><a href="#writing" class="nav-link">Tech Blogs</a></li>
+                <li><a href="#awards" class="nav-link">Awards & Certifications</a></li>
+                <li><a href="#contact" class="nav-link">Contact</a></li>
+            </ul>
+            <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">
+                <svg class="sun-icon" width="20" height="20" viewBox="0 0 20 20" fill="currentColor">
+                    <path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z"/>
+                </svg>
+                <svg class="moon-icon" width="20" height="20" viewBox="0 0 20 20" fill="currentColor">
+                    <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"/>
+                </svg>
+            </button>
+        </div>
+    </nav>
+
+    <!-- About Section -->
+    <section id="about" class="page-section active">
+        <div class="container">
+            <!-- Profile Photo -->
+            <div class="about-photo-wrapper">
+                <img src="profile-photo.jpg" alt="Raviteja Sunkavalli" class="about-photo">
+            </div>
+
+            <!-- About Content -->
+            <div class="about-content">
+                <h1 class="about-name">Raviteja Sunkavalli</h1>
+                
+                <!-- Story Content -->
+                <div class="story-content">
+                    <p>I'm a Sr. Worldwide Specialist Solutions Architect at AWS, specializing in Cloud Operations. With 6+ years of proven experience in the Information Technology and Cloud industry, I excel in designing and supporting complex enterprise infrastructure, including scaling, migrations, and operational excellence. My current focus areas include <strong>GenAI Observability</strong>, <strong>Application Performance Monitoring</strong>, and <strong>Incident Management</strong> across multi-cloud environments.</p>
+                    
+                    <p>As a technical advisor for customers across public and private sectors, my work involves architecting solutions to their most complex operational challenges, conducting effective C-suite meetings, and guiding strategic decision-making to drive organizational success. These hands-on customer engagements provide unique insights that flow back to AWS product teams, directly influencing feature development and shaping the product roadmap.</p>
+                    
+                    <p>I translate this expertise into thought leadership by sharing best practices through AWS blogs, whitepapers, and reference architectures. I speak at major events like AWS re:Invent and AWS Summits, reaching thousands of practitioners worldwide. I also partner with Business Development teams to define technical components of go-to-market strategies, ensuring our solutions address real customer needs.</p>
+                    
+                    <p>Beyond external work, I build internal capabilities. I lead a worldwide community of technical experts and create enablement materials that help engineers integrate AWS services into customer architectures. As a trusted technical advisor, thought leader, and customer advocate, I shape the future of observability and operational excellence in the cloud-native era.</p>
+                </div>
+
+                <div class="impact-section">
+                    <h3 class="section-heading">Impact & Contributions</h3>
+                    <div class="impact-stats">
+                        <a href="#writing" class="stat-card stat-card-link nav-link">
+                            <div class="stat-number">10+</div>
+                            <div class="stat-label">Technical Blog Posts</div>
+                        </a>
+                        <a href="#speaking" class="stat-card stat-card-link nav-link">
+                            <div class="stat-number">7</div>
+                            <div class="stat-label">Speaking Events</div>
+                        </a>
+                        <a href="#awards" class="stat-card stat-card-link nav-link">
+                            <div class="stat-number">4</div>
+                            <div class="stat-label">Awards</div>
+                        </a>
+                        <a href="#awards" class="stat-card stat-card-link nav-link">
+                            <div class="stat-number">3</div>
+                            <div class="stat-label">Certifications</div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Speaking Section -->
+    <section id="speaking" class="page-section">
+        <div class="container">
+            <h2 class="page-title">Speaking Events</h2>
+            <div class="events-grid">
+                <!-- Event 1 -->
+                <div class="event-card">
+                    <div class="event-images">
+                        <div class="image-slider">
+                            <img src="images/reinvent2025-1.jpg" alt="re:Invent 2025 COP418" class="event-image active">
+                        </div>
+                        <div class="slider-dots"></div>
+                    </div>
+                    <div class="event-header">
+                        <span class="event-type">AWS re:Invent 2025</span>
+                        <span class="event-badge">Code Talk</span>
+                    </div>
+                    <div class="event-date">December 2025</div>
+                    <h3 class="event-title">Monitor the quality and accuracy of your generative AI workloads (COP418)</h3>
+                    <p class="event-description">Live coding session on Amazon CloudWatch AI observability. Build agentic applications using Amazon Bedrock AgentCore and Amazon EKS with Strands Agent SDK, automatically instrumented through AWS Distro for OpenTelemetry (ADOT).</p>
+                    <div class="event-topics">
+                        <span class="topic">AI Observability</span>
+                        <span class="topic">Bedrock AgentCore</span>
+                        <span class="topic">ADOT</span>
+                    </div>
+                    <a href="https://www.youtube.com/watch?v=YMiHLRF4a5M&list=PL2yQDdvlhXf8fUGVeljVNpQwugV7XBZRt&index=3" class="event-link" target="_blank">Watch Video →</a>
+                </div>
+
+                <!-- Event 2 -->
+                <div class="event-card">
+                    <div class="event-images">
+                        <div class="image-slider">
+                            <img src="images/reinvent2024-1.jpg" alt="re:Invent 2024 COP318" class="event-image active">
+                        </div>
+                        <div class="slider-dots"></div>
+                    </div>
+                    <div class="event-header">
+                        <span class="event-type">AWS re:Invent 2024</span>
+                        <span class="event-badge">Code Talk</span>
+                    </div>
+                    <div class="event-date">December 2024</div>
+                    <h3 class="event-title">Streamlining incident response with AWS Systems Manager (COP318)</h3>
+                    <p class="event-description">Hands-on session demonstrating how to streamline incident response workflows using AWS Systems Manager capabilities.</p>
+                    <div class="event-topics">
+                        <span class="topic">Systems Manager</span>
+                        <span class="topic">Incident Response</span>
+                    </div>
+                    <a href="https://github.com/sunkavar/reInvent2024-COP318" class="event-link" target="_blank">View Code →</a>
+                </div>
+
+                <!-- Event 3 -->
+                <div class="event-card">
+                    <div class="event-images">
+                        <div class="image-slider">
+                            <img src="images/summit-la-1.jpg" alt="AWS Summit LA COP401" class="event-image active">
+                        </div>
+                        <div class="slider-dots"></div>
+                    </div>
+                    <div class="event-header">
+                        <span class="event-type">AWS Summit LA</span>
+                        <span class="event-badge">Code Talk</span>
+                    </div>
+                    <div class="event-date">September 2025</div>
+                    <h3 class="event-title">Agentic AI Observability with Amazon CloudWatch (COP401)</h3>
+                    <p class="event-description">Hands-on live coding: Build AI agents with contextual telemetry, seamless auto-instrumentation with ADOT SDK, real-time visualization, and troubleshooting patterns across Bedrock AgentCore, EKS, ECS, and EC2.</p>
+                    <div class="event-topics">
+                        <span class="topic">Agentic AI</span>
+                        <span class="topic">CloudWatch</span>
+                        <span class="topic">Multi-Platform</span>
+                    </div>
+                </div>
+
+                <!-- Event 4 -->
+                <div class="event-card">
+                    <div class="event-images">
+                        <div class="image-slider">
+                            <img src="images/summit-nyc-1.jpg" alt="AWS Summit NYC COP301" class="event-image active">
+                        </div>
+                        <div class="slider-dots"></div>
+                    </div>
+                    <div class="event-header">
+                        <span class="event-type">AWS Summit NYC</span>
+                        <span class="event-badge">Builders Session</span>
+                    </div>
+                    <div class="event-date">July 2025</div>
+                    <h3 class="event-title">Hands-on experience with Amazon CloudWatch (COP301)</h3>
+                    <p class="event-description">Learn hands-on from basic infrastructure monitoring to APM and advanced digital experience monitoring using CloudWatch.</p>
+                    <div class="event-topics">
+                        <span class="topic">CloudWatch</span>
+                        <span class="topic">APM</span>
+                        <span class="topic">Monitoring</span>
+                    </div>
+                </div>
+
+                <!-- Event 5 -->
+                <div class="event-card">
+                    <div class="event-images">
+                        <div class="image-slider">
+                            <img src="images/cloudopsshow-ep16.png" alt="CloudOps Show Episode 16" class="event-image active">
+                        </div>
+                        <div class="slider-dots"></div>
+                    </div>
+                    <div class="event-header">
+                        <span class="event-type">CloudOps Show - Episode 16</span>
+                        <span class="event-badge">YouTube</span>
+                    </div>
+                    <div class="event-date">September 2025</div>
+                    <h3 class="event-title">Observe your Agentic AI apps hosted anywhere</h3>
+                    <p class="event-description">Learn how Amazon CloudWatch enables AI observability and troubleshooting across Bedrock AgentCore, EC2, EKS, and ECS with Strands Agent SDK.</p>
+                    <div class="event-topics">
+                        <span class="topic">Multi-Platform</span>
+                        <span class="topic">AI Observability</span>
+                    </div>
+                    <a href="https://www.youtube.com/watch?v=oS1vBeidLNs&list=PLehXSATXjcQHj8bPSf0uZuQBoxJ7a7ag7&index=7" class="event-link" target="_blank">Watch Episode →</a>
+                </div>
+
+                <!-- Event 6 -->
+                <div class="event-card">
+                    <div class="event-images">
+                        <div class="image-slider">
+                            <img src="images/cloudopsshow-ep17.png" alt="CloudOps Show Episode 17" class="event-image active">
+                        </div>
+                        <div class="slider-dots"></div>
+                    </div>
+                    <div class="event-header">
+                        <span class="event-type">CloudOps Show - Episode 17</span>
+                        <span class="event-badge">YouTube</span>
+                    </div>
+                    <div class="event-date">October 2025</div>
+                    <h3 class="event-title">Logs Centralization with Amazon CloudWatch</h3>
+                    <p class="event-description">Spotlight on CloudWatch Logs centralization features that simplify multi-account and multi-region log management. Learn about VPC Flow Logs, metric tagging, and extended Metrics Insights query period.</p>
+                    <div class="event-topics">
+                        <span class="topic">Log Management</span>
+                        <span class="topic">Multi-Account</span>
+                    </div>
+                    <a href="https://www.youtube.com/watch?v=FGRurnX6iW8&list=PLehXSATXjcQHj8bPSf0uZuQBoxJ7a7ag7&index=6" class="event-link" target="_blank">Watch Episode →</a>
+                </div>
+
+                <!-- Event 7 -->
+                <div class="event-card">
+                    <div class="event-images">
+                        <div class="image-slider">
+                            <img src="images/partner-equip-1.jpg" alt="Partner Equip" class="event-image active">
+                        </div>
+                        <div class="slider-dots"></div>
+                    </div>
+                    <div class="event-header">
+                        <span class="event-type">Partner Equip</span>
+                        <span class="event-badge">Partner Event</span>
+                    </div>
+                    <div class="event-date">May 2025</div>
+                    <h3 class="event-title">Scaling IT with next-gen of AWS Systems Manager</h3>
+                    <p class="event-description">Partner enablement session on the latest AWS Systems Manager capabilities for scaling IT operations.</p>
+                    <div class="event-topics">
+                        <span class="topic">Systems Manager</span>
+                        <span class="topic">Partner Enablement</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Writing Section -->
+    <section id="writing" class="page-section">
+        <div class="container">
+            <h2 class="page-title">Tech Blogs</h2>
+            <div class="blog-grid">
+                <!-- Blog Post 1 -->
+                <article class="blog-card">
+                    <div class="blog-meta">
+                        <span class="blog-date">November 2025</span>
+                    </div>
+                    <h3 class="blog-title">2025 Top 10 Announcements for AWS Cloud Operations</h3>
+                    <p class="blog-excerpt">Comprehensive overview of the most significant AWS Cloud Operations announcements in 2025.</p>
+                    <a href="https://aws.amazon.com/blogs/mt/2025-top-10-announcements-for-aws-cloud-operations/" class="blog-link" target="_blank">Read More →</a>
+                </article>
+
+                <!-- Blog Post 2 -->
+                <article class="blog-card">
+                    <div class="blog-meta">
+                        <span class="blog-date">September 2025</span>
+                    </div>
+                    <h3 class="blog-title">Simplifying Log Management using Amazon CloudWatch Logs Centralization</h3>
+                    <p class="blog-excerpt">Learn how to streamline multi-account and multi-region log management with CloudWatch Logs centralization.</p>
+                    <a href="https://aws.amazon.com/blogs/mt/simplifying-log-management-using-amazon-cloudwatch-logs-centralization/" class="blog-link" target="_blank">Read More →</a>
+                </article>
+
+                <!-- Blog Post 3 -->
+                <article class="blog-card">
+                    <div class="blog-meta">
+                        <span class="blog-date">September 2025</span>
+                    </div>
+                    <h3 class="blog-title">Optimizing metrics ingestion with Amazon Managed Service for Prometheus</h3>
+                    <p class="blog-excerpt">Best practices for optimizing metrics ingestion and reducing costs with Amazon Managed Service for Prometheus.</p>
+                    <a href="https://aws.amazon.com/blogs/mt/optimizing-metrics-ingestion-with-amazon-managed-service-for-prometheus/" class="blog-link" target="_blank">Read More →</a>
+                </article>
+
+                <!-- Blog Post 4 -->
+                <article class="blog-card">
+                    <div class="blog-meta">
+                        <span class="blog-date">August 2025</span>
+                    </div>
+                    <h3 class="blog-title">Enhance your AIOps: Introducing Amazon CloudWatch and Application Signals MCP servers</h3>
+                    <p class="blog-excerpt">Discover how MCP servers enhance AIOps capabilities with CloudWatch and Application Signals integration.</p>
+                    <a href="https://aws.amazon.com/blogs/mt/enhance-your-aiops-introducing-amazon-cloudwatch-and-application-signals-mcp-servers/" class="blog-link" target="_blank">Read More →</a>
+                </article>
+
+                <!-- Blog Post 5 -->
+                <article class="blog-card">
+                    <div class="blog-meta">
+                        <span class="blog-date">July 2025</span>
+                    </div>
+                    <h3 class="blog-title">Launching Amazon CloudWatch generative AI observability (Preview)</h3>
+                    <p class="blog-excerpt">Introduction to CloudWatch's new generative AI observability capabilities for monitoring AI workloads.</p>
+                    <a href="https://aws.amazon.com/blogs/mt/launching-amazon-cloudwatch-generative-ai-observability-preview/" class="blog-link" target="_blank">Read More →</a>
+                </article>
+
+                <!-- Blog Post 6 -->
+                <article class="blog-card">
+                    <div class="blog-meta">
+                        <span class="blog-date">June 2025</span>
+                    </div>
+                    <h3 class="blog-title">Observing Agentic AI workloads using Amazon CloudWatch</h3>
+                    <p class="blog-excerpt">Comprehensive guide to monitoring and observing agentic AI workloads with CloudWatch agent.</p>
+                    <a href="https://aws.amazon.com/blogs/mt/observing-agentic-ai-workloads-using-amazon-cloudwatch/" class="blog-link" target="_blank">Read More →</a>
+                </article>
+
+                <!-- Blog Post 7 -->
+                <article class="blog-card">
+                    <div class="blog-meta">
+                        <span class="blog-date">January 2025</span>
+                    </div>
+                    <h3 class="blog-title">Automate Systems Manager patching reports via email and Slack notifications</h3>
+                    <p class="blog-excerpt">Learn how to automate patching reports across your AWS Organization with email and Slack integration.</p>
+                    <a href="https://aws.amazon.com/blogs/mt/automate-systems-manager-patching-reports-via-email-and-slack-notifications-in-an-aws-organization/" class="blog-link" target="_blank">Read More →</a>
+                </article>
+
+                <!-- Blog Post 8 -->
+                <article class="blog-card">
+                    <div class="blog-meta">
+                        <span class="blog-date">December 2024</span>
+                    </div>
+                    <h3 class="blog-title">Troubleshooting AWS Systems Manager patching with Amazon Bedrock</h3>
+                    <p class="blog-excerpt">Discover how Amazon Bedrock's automated recommendations simplify Systems Manager patching troubleshooting.</p>
+                    <a href="https://aws.amazon.com/blogs/mt/troubleshooting-aws-systems-manager-patching-made-easy-with-amazon-bedrocks-automated-recommendations/" class="blog-link" target="_blank">Read More →</a>
+                </article>
+
+                <!-- Blog Post 9 -->
+                <article class="blog-card">
+                    <div class="blog-meta">
+                        <span class="blog-date">August 2024</span>
+                    </div>
+                    <h3 class="blog-title">Automate your Multicloud operations with AWS Systems Manager and AWS Lambda</h3>
+                    <p class="blog-excerpt">Learn how to extend AWS Systems Manager capabilities to manage multicloud environments using Lambda.</p>
+                    <a href="https://aws.amazon.com/blogs/mt/automate-your-multicloud-operations-with-aws-systems-manager-and-aws-lambda/" class="blog-link" target="_blank">Read More →</a>
+                </article>
+
+                <!-- Blog Post 10 -->
+                <article class="blog-card">
+                    <div class="blog-meta">
+                        <span class="blog-date">April 2024</span>
+                    </div>
+                    <h3 class="blog-title">Automate incident reports from AWS Systems Manager Incident Manager</h3>
+                    <p class="blog-excerpt">Streamline incident management by automating report generation from Systems Manager Incident Manager.</p>
+                    <a href="https://aws.amazon.com/blogs/mt/automate-incident-reports-from-aws-systems-manager-incident-manager/" class="blog-link" target="_blank">Read More →</a>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- Awards Section -->
+    <section id="awards" class="page-section">
+        <div class="container">
+            <h2 class="page-title">Awards & Certifications</h2>
+            
+            <!-- Certifications -->
+            <h3 class="subsection-title">Certifications</h3>
+            <div class="awards-grid">
+                <!-- Certification 1 -->
+                <div class="award-card">
+                    <img src="images/sa-pro.png" alt="AWS Certified Solutions Architect - Professional" class="award-badge">
+                    <h3 class="award-title">AWS Certified Solutions Architect – Professional</h3>
+                    <div class="award-meta">
+                        <span class="award-issuer">Amazon Web Services Training and Certification</span>
+                    </div>
+                    <p class="award-description">Advanced certification demonstrating expertise in designing technical strategies and solutions across multiple platforms and providers.</p>
+                </div>
+
+                <!-- Certification 2 -->
+                <div class="award-card">
+                    <img src="images/AI-foundational.png" alt="AWS AI Foundational" class="award-badge">
+                    <h3 class="award-title">AWS AI Foundational (L100)</h3>
+                    <div class="award-meta">
+                        <span class="award-issuer">AWS Worldwide Field Enablement</span>
+                    </div>
+                    <p class="award-description">Foundational certification in AI/ML and generative AI, covering core concepts, agentic AI fundamentals, and responsible AI development practices.</p>
+                </div>
+
+                <!-- Certification 3 -->
+                <div class="award-card">
+                    <img src="images/Microsoft professional.png" alt="Microsoft Professional Certificate in Data Science" class="award-badge microsoft-cert">
+                    <h3 class="award-title">Microsoft Professional Certificate in Data Science</h3>
+                    <div class="award-meta">
+                        <span class="award-issuer">Microsoft</span>
+                    </div>
+                    <p class="award-description">Professional certification in data science fundamentals, including data analysis, machine learning, and statistical modeling.</p>
+                </div>
+            </div>
+
+            <!-- Awards -->
+            <h3 class="subsection-title">Awards</h3>
+            <div class="awards-grid">
+                <!-- Award 1 -->
+                <div class="award-card">
+                    <div class="award-icon">🏆</div>
+                    <h3 class="award-title">AWS AWSome Builder Award</h3>
+                    <div class="award-meta">
+                        <span class="award-issuer">Amazon Web Services</span>
+                    </div>
+                    <p class="award-description">Recognized for creating a comprehensive playbook on AWS Systems Manager Patch Policy, providing insights into feature internals and implementation strategies.</p>
+                </div>
+
+                <!-- Award 2 -->
+                <div class="award-card">
+                    <img src="images/wise guru.png" alt="AWS Wise Guru Award" class="award-badge">
+                    <h3 class="award-title">AWS Wise Guru Award</h3>
+                    <div class="award-meta">
+                        <span class="award-issuer">Amazon Web Services</span>
+                    </div>
+                    <p class="award-description">Recognized for impactful mentoring and training initiatives that enhance team knowledge, skills, and overall performance.</p>
+                </div>
+
+                <!-- Award 3 -->
+                <div class="award-card">
+                    <img src="images/knowledge champ.png" alt="AWS Knowledge Champ Award" class="award-badge">
+                    <h3 class="award-title">AWS Knowledge Champ Award</h3>
+                    <div class="award-meta">
+                        <span class="award-issuer">Amazon Web Services</span>
+                    </div>
+                    <p class="award-description">Honored for exceptional curiosity and commitment to continuous improvement, elevating team expertise and enhancing customer experience.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="page-section">
+        <div class="container">
+            <h2 class="page-title">Get In Touch</h2>
+            <div class="contact-content">
+                <p class="contact-text">Interested in discussing cloud operations, AI observability, or speaking opportunities?</p>
+                <div class="contact-links">
+                    <a href="https://github.com/sunkavar" class="contact-btn" target="_blank">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                        </svg>
+                        GitHub
+                    </a>
+                    <a href="https://www.linkedin.com/in/raviteja-sunkavalli" class="contact-btn" target="_blank">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+                        </svg>
+                        LinkedIn
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 Raviteja Sunkavalli. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
