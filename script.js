@@ -210,31 +210,53 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 });
 
-// Mobile menu toggle (if needed in future)
-const createMobileMenu = () => {
-    const navbar = document.querySelector('.navbar .container');
+// Mobile menu toggle - Initialize after DOM loads
+document.addEventListener('DOMContentLoaded', () => {
+    const menuToggle = document.getElementById('menuToggle');
     const navMenu = document.querySelector('.nav-menu');
-    
-    if (window.innerWidth <= 768) {
-        if (!document.querySelector('.menu-toggle')) {
-            const menuToggle = document.createElement('button');
-            menuToggle.className = 'menu-toggle';
-            menuToggle.innerHTML = '☰';
-            menuToggle.setAttribute('aria-label', 'Toggle menu');
-            
-            menuToggle.addEventListener('click', () => {
-                navMenu.classList.toggle('active');
-                menuToggle.classList.toggle('active');
-            });
-            
-            navbar.insertBefore(menuToggle, navMenu);
-        }
-    }
-};
 
-// Initialize on load and resize
-window.addEventListener('load', createMobileMenu);
-window.addEventListener('resize', createMobileMenu);
+    if (menuToggle && navMenu) {
+        // Main toggle handler
+        menuToggle.addEventListener('click', (e) => {
+            e.preventDefault();
+            e.stopPropagation();
+            
+            const isActive = navMenu.classList.contains('active');
+            
+            if (isActive) {
+                navMenu.classList.remove('active');
+                menuToggle.classList.remove('active');
+            } else {
+                navMenu.classList.add('active');
+                menuToggle.classList.add('active');
+            }
+        }, true);
+
+        // Close menu when clicking a nav link
+        const navLinks = document.querySelectorAll('.nav-menu .nav-link');
+        
+        navLinks.forEach(link => {
+            link.addEventListener('click', (e) => {
+                e.stopPropagation();
+                navMenu.classList.remove('active');
+                menuToggle.classList.remove('active');
+            });
+        });
+
+        // Close menu when clicking outside
+        setTimeout(() => {
+            document.addEventListener('click', (e) => {
+                const clickedToggle = menuToggle.contains(e.target);
+                const clickedMenu = navMenu.contains(e.target);
+                
+                if (!clickedToggle && !clickedMenu && navMenu.classList.contains('active')) {
+                    navMenu.classList.remove('active');
+                    menuToggle.classList.remove('active');
+                }
+            });
+        }, 200);
+    }
+});
 
 // Add scroll-to-top button
 const createScrollToTop = () => {
