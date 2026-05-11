@@ -382,3 +382,89 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         }
     });
 })();
+
+
+// ============================================
+// Dashboard Sparkline Charts (Hero Section)
+// ============================================
+function drawDashSparklines() {
+    document.querySelectorAll('.dash-sparkline').forEach(el => {
+        const raw = el.dataset.values;
+        if (!raw) return;
+        const values = raw.split(',').map(Number);
+        const max = Math.max(...values);
+        const min = Math.min(...values);
+        const range = max - min || 1;
+        const width = el.offsetWidth;
+        const height = 24;
+
+        if (width === 0) return;
+
+        // Clear previous
+        el.innerHTML = '';
+
+        const canvas = document.createElement('canvas');
+        canvas.width = width * 2;
+        canvas.height = height * 2;
+        canvas.style.width = width + 'px';
+        canvas.style.height = height + 'px';
+        el.appendChild(canvas);
+
+        const ctx = canvas.getContext('2d');
+        ctx.scale(2, 2);
+
+        const step = width / (values.length - 1);
+        const points = values.map((v, i) => ({
+            x: i * step,
+            y: height - ((v - min) / range) * (height - 4) - 2
+        }));
+
+        // Gradient fill
+        const gradient = ctx.createLinearGradient(0, 0, 0, height);
+        gradient.addColorStop(0, 'rgba(99, 102, 241, 0.3)');
+        gradient.addColorStop(1, 'rgba(99, 102, 241, 0)');
+
+        ctx.beginPath();
+        ctx.moveTo(points[0].x, points[0].y);
+        for (let i = 1; i < points.length; i++) {
+            const cp1x = points[i-1].x + step * 0.4;
+            const cp1y = points[i-1].y;
+            const cp2x = points[i].x - step * 0.4;
+            const cp2y = points[i].y;
+            ctx.bezierCurveTo(cp1x, cp1y, cp2x, cp2y, points[i].x, points[i].y);
+        }
+        ctx.lineTo(width, height);
+        ctx.lineTo(0, height);
+        ctx.closePath();
+        ctx.fillStyle = gradient;
+        ctx.fill();
+
+        // Line
+        ctx.beginPath();
+        ctx.moveTo(points[0].x, points[0].y);
+        for (let i = 1; i < points.length; i++) {
+            const cp1x = points[i-1].x + step * 0.4;
+            const cp1y = points[i-1].y;
+            const cp2x = points[i].x - step * 0.4;
+            const cp2y = points[i].y;
+            ctx.bezierCurveTo(cp1x, cp1y, cp2x, cp2y, points[i].x, points[i].y);
+        }
+        ctx.strokeStyle = '#818cf8';
+        ctx.lineWidth = 1.5;
+        ctx.stroke();
+
+        // End dot
+        const last = points[points.length - 1];
+        ctx.beginPath();
+        ctx.arc(last.x, last.y, 2.5, 0, Math.PI * 2);
+        ctx.fillStyle = '#a78bfa';
+        ctx.fill();
+    });
+}
+
+// Draw after layout settles
+setTimeout(drawDashSparklines, 200);
+window.addEventListener('resize', () => {
+    clearTimeout(window._sparkResize);
+    window._sparkResize = setTimeout(drawDashSparklines, 150);
+});

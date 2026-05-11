@@ -147,12 +147,9 @@ body.dark-mode .navbar {
     justify-content: center;
     width: 36px;
     height: 36px;
-    background: var(--gradient-text);
-    color: #fff;
     border-radius: var(--radius-sm);
-    font-size: 0.8rem;
-    font-weight: 800;
-    letter-spacing: -0.5px;
+    overflow: hidden;
+    flex-shrink: 0;
 }
 
 .brand-text { letter-spacing: -0.3px; }
@@ -393,12 +390,14 @@ body.dark-mode .moon-icon { display: none; }
     position: relative;
     display: flex;
     justify-content: center;
+    align-items: center;
+    min-height: 400px;
 }
 
 .hero-photo-wrapper {
     position: relative;
-    width: 320px;
-    height: 320px;
+    width: 280px;
+    height: 280px;
 }
 
 .hero-photo {
@@ -413,10 +412,10 @@ body.dark-mode .moon-icon { display: none; }
 
 .photo-ring {
     position: absolute;
-    inset: -12px;
+    inset: -16px;
     border-radius: 50%;
-    border: 2px solid var(--hero-ring);
-    animation: spin-slow 20s linear infinite;
+    border: 1px dashed rgba(99, 102, 241, 0.3);
+    animation: spin-slow 30s linear infinite;
 }
 
 .photo-ring::before {
@@ -442,26 +441,41 @@ body.dark-mode .moon-icon { display: none; }
 
 .float-tag {
     position: absolute;
-    background: var(--hero-badge-bg);
+    background: rgba(99, 102, 241, 0.12);
     backdrop-filter: blur(10px);
-    border: 1px solid var(--hero-badge-border);
-    padding: 0.35rem 0.85rem;
+    border: 1px solid rgba(99, 102, 241, 0.3);
+    padding: 0.4rem 0.9rem;
     border-radius: 100px;
-    font-size: 0.75rem;
+    font-size: 0.78rem;
     font-weight: 600;
-    color: var(--hero-badge-text);
+    color: rgba(255, 255, 255, 0.9);
     white-space: nowrap;
     animation: float 6s ease-in-out infinite;
+    box-shadow: 0 4px 12px rgba(99, 102, 241, 0.1);
 }
 
-.tag-1 { top: 5%; left: -10%; animation-delay: 0s; }
-.tag-2 { top: 15%; right: -15%; animation-delay: 1.5s; }
-.tag-3 { bottom: 25%; left: -15%; animation-delay: 3s; }
-.tag-4 { bottom: 5%; right: -10%; animation-delay: 4.5s; }
+/* Position tags around the circle */
+.tag-1 { top: 2%; left: 50%; transform: translateX(-50%); animation-delay: 0s; }
+.tag-2 { top: 22%; right: -8%; animation-delay: 1s; }
+.tag-3 { bottom: 22%; right: -5%; animation-delay: 2s; }
+.tag-4 { bottom: 2%; left: 50%; transform: translateX(-50%); animation-delay: 3s; }
+.tag-5 { top: 55%; left: -12%; animation-delay: 4s; }
+.tag-6 { bottom: 10%; left: -5%; animation-delay: 5s; }
+.tag-7 { top: 18%; left: -5%; animation-delay: 0.5s; }
 
 @keyframes float {
     0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(-12px); }
+    50% { transform: translateY(-8px); }
+}
+
+/* Fix transform override for centered tags */
+.tag-1, .tag-4 {
+    animation: float-center 6s ease-in-out infinite;
+}
+
+@keyframes float-center {
+    0%, 100% { transform: translateX(-50%) translateY(0); }
+    50% { transform: translateX(-50%) translateY(-8px); }
 }
 
 .hero-scroll-indicator {
@@ -1277,4 +1291,217 @@ body.dark-mode .moon-icon { display: none; }
     .search-overlay { padding-top: 1rem; }
     .search-modal { max-height: 90vh; }
     .search-results { max-height: 60vh; }
+}
+
+
+/* ============================================
+   Dashboard Widgets in Hero
+   ============================================ */
+.dashboard-widgets {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.85rem;
+    margin-bottom: 2.5rem;
+    margin-top: 0.5rem;
+}
+
+.dash-widget {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    padding: 1rem 1.15rem;
+    transition: all var(--transition);
+}
+
+.dash-widget:hover {
+    border-color: rgba(99, 102, 241, 0.5);
+    background: rgba(255, 255, 255, 0.08);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(99, 102, 241, 0.15);
+}
+
+.dash-widget-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 0.5rem;
+}
+
+.dash-widget-label {
+    font-size: 0.7rem;
+    font-weight: 500;
+    color: rgba(255, 255, 255, 0.5);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.dash-widget-badge {
+    font-size: 0.6rem;
+    font-weight: 600;
+    padding: 0.1rem 0.4rem;
+    border-radius: 100px;
+}
+
+.dash-widget-badge.green {
+    background: rgba(34, 197, 94, 0.15);
+    color: #4ade80;
+}
+
+.dash-widget-badge.blue {
+    background: rgba(99, 102, 241, 0.15);
+    color: #818cf8;
+}
+
+.dash-widget-badge.gold {
+    background: rgba(251, 191, 36, 0.15);
+    color: #fbbf24;
+}
+
+.dash-widget-value {
+    font-family: var(--font-mono);
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #ffffff;
+    letter-spacing: -0.5px;
+    margin-bottom: 0.15rem;
+}
+
+.dash-widget-sub {
+    font-size: 0.72rem;
+    color: rgba(255, 255, 255, 0.4);
+    margin-bottom: 0.6rem;
+}
+
+.dash-sparkline {
+    height: 24px;
+    position: relative;
+}
+
+.dash-sparkline canvas {
+    display: block;
+}
+
+/* Responsive adjustments for dashboard widgets */
+@media (max-width: 1024px) {
+    .dashboard-widgets {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .dashboard-widgets {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 0.65rem;
+    }
+    .dash-widget-value {
+        font-size: 1.25rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .dashboard-widgets {
+        grid-template-columns: 1fr 1fr;
+        gap: 0.5rem;
+    }
+    .dash-widget {
+        padding: 0.75rem;
+    }
+    .dash-widget-value {
+        font-size: 1.1rem;
+    }
+}
+
+
+/* ---- Work Samples Grid ---- */
+.samples-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 1rem;
+}
+
+.sample-card {
+    display: flex;
+    flex-direction: column;
+    padding: 1.25rem;
+    background: var(--gradient-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    text-decoration: none;
+    transition: all var(--transition);
+}
+
+.sample-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-md);
+    border-color: var(--primary-light);
+}
+
+.sample-card-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 0.6rem;
+}
+
+.sample-type {
+    font-size: 0.65rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    padding: 0.2rem 0.5rem;
+    border-radius: 4px;
+}
+
+.sample-type.workshop {
+    background: rgba(245, 158, 11, 0.12);
+    color: var(--accent);
+}
+
+.sample-type.guide {
+    background: rgba(34, 197, 94, 0.12);
+    color: #22c55e;
+}
+
+.sample-type.github {
+    background: var(--glow);
+    color: var(--primary);
+}
+
+.sample-stat {
+    font-family: var(--font-mono);
+    font-size: 0.68rem;
+    color: var(--text-3);
+}
+
+.sample-card-title {
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: var(--text);
+    line-height: 1.35;
+    margin-bottom: 0.4rem;
+    transition: color var(--transition);
+}
+
+.sample-card:hover .sample-card-title {
+    color: var(--primary);
+}
+
+.sample-card-desc {
+    font-size: 0.8rem;
+    color: var(--text-2);
+    line-height: 1.5;
+    flex: 1;
+}
+
+@media (max-width: 768px) {
+    .samples-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media (max-width: 480px) {
+    .samples-grid {
+        grid-template-columns: 1fr;
+    }
 }
