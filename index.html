@@ -9,10 +9,10 @@
     <title>Raviteja Sunkavalli | Enterprise Technologist &amp; Trusted Advisor</title>
     <link rel="icon" type="image/svg+xml" href="favicon.svg">
     <script>
-        /* Apply saved/system theme before first paint to avoid a flash */
+        /* Apply theme before first paint to avoid a flash. Dark is the default;
+           light applies only when the visitor explicitly chose it. */
         (function () {
-            var saved = localStorage.getItem('theme');
-            if (saved === 'dark' || (!saved && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            if (localStorage.getItem('theme') !== 'light') {
                 document.documentElement.classList.add('dark');
             }
         })();
@@ -26,7 +26,6 @@
 
     <!-- Ambient background -->
     <div class="bg-scene" aria-hidden="true">
-        <div class="bg-grid"></div>
         <div class="bg-blob blob-1"></div>
         <div class="bg-blob blob-2"></div>
         <div class="bg-blob blob-3"></div>
@@ -64,6 +63,7 @@
 
     <!-- Hero -->
     <header id="hero" class="hero">
+        <canvas class="particle-canvas" id="particleCanvas" aria-hidden="true"></canvas>
         <div class="container hero-inner">
             <div class="hero-badge reveal">
                 <span class="status-dot"></span>
@@ -71,7 +71,7 @@
             </div>
             <h1 class="hero-name reveal">Hi, I'm <span class="hl">Raviteja Sunkavalli</span></h1>
             <p class="hero-role reveal"><span id="roleText">Enterprise Technologist</span><span class="cursor cursor-sm" id="roleCursor" aria-hidden="true"></span></p>
-            <p class="hero-desc reveal">Advising Fortune 500 and public-sector leaders as a field CTO for cloud operations and AI observability: architecting agentic AI platforms enterprises can trust, shaping AWS product roadmaps, and driving go-to-market for what ships next.</p>
+            <p class="hero-desc reveal">I help enterprise teams run cloud and AI workloads they can trust: architecting observability for agentic AI, translating field insights into AWS product roadmaps, and driving go-to-market for what ships next.</p>
             <div class="hero-tags reveal">
                 <span class="pill pill-green mono">Agentic AI Observability</span>
                 <span class="pill pill-blue mono">Cloud Operations</span>
@@ -115,7 +115,7 @@
                 </div>
                 <div class="about-text reveal">
                     <p>I'm a Senior Worldwide Specialist Solutions Architect at AWS, focused on <strong>Cloud Operations and LLM &amp; Agentic AI Observability</strong>. My work sits at the intersection of customers, product, and the field: helping enterprises run AI workloads they can trust, and helping AWS build the tools that make that possible.</p>
-                    <p>Fortune 500 and public-sector teams usually come to me with the same question in different forms: <strong>how do we operate this at scale?</strong> I work alongside their architects and executives to design observability and operations foundations that hold up in production, and to make the case for them as clearly in the boardroom as in the terminal.</p>
+                    <p>Enterprise teams usually come to me with the same question in different forms: <strong>how do we operate this at scale?</strong> I work alongside their architects and executives to design observability and operations foundations that hold up in production, and to make the case for them as clearly in the boardroom as in the terminal.</p>
                     <p>What I learn in the field goes back into the product. I channel customer insights into AWS product teams, shape go-to-market for newly released capabilities, and teach what works through <strong>AWS blogs, re:Invent and Summit sessions, and open workshops</strong>, because the fastest way to raise the bar is to share it.</p>
                     <p>The throughline in all of it: <strong>earn trust with substance</strong>. Fewer slides, more working architectures. That approach earned the 2025 AWS Annual Award for Customer Obsession.</p>
                 </div>
@@ -218,8 +218,8 @@
                     <span class="stat-icon icon-green" aria-hidden="true">
                         <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/><polyline points="16 7 22 7 22 13"/></svg>
                     </span>
-                    <div class="stat-card-value mono" data-count="1" data-prefix="$" data-suffix="B+">$0B+</div>
-                    <h3 class="stat-card-title">Pipeline Generated</h3>
+                    <div class="stat-card-value mono" data-count="800" data-prefix="$" data-suffix="M">$0M</div>
+                    <h3 class="stat-card-title">Enterprise Revenue Influenced</h3>
                     <p class="stat-card-label">Through GTM strategy &amp; C-suite briefings</p>
                 </div>
                 <div class="stat-card">
@@ -252,7 +252,7 @@
                     </span>
                     <div class="stat-card-value mono" data-count="12" data-suffix="+">0+</div>
                     <h3 class="stat-card-title">Speaking Sessions</h3>
-                    <p class="stat-card-label">AWS re:Invent, Summits &amp; the CloudOps Show</p>
+                    <p class="stat-card-label">re:Invent, Summits &amp; webinars</p>
                 </div>
                 <div class="stat-card">
                     <span class="stat-icon icon-orange" aria-hidden="true">
