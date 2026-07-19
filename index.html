@@ -3,586 +3,777 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Raviteja Sunkavalli - Enterprise Technologist, Cloud and AI at AWS specializing in AI Observability">
+    <meta name="description" content="Raviteja Sunkavalli - Field CTO-caliber Enterprise Technologist at AWS. Trusted advisor to Fortune 500 on Cloud Operations, GenAI and Agentic AI Observability.">
     <meta name="author" content="Raviteja Sunkavalli">
-    <meta name="keywords" content="AWS, Enterprise Technologist, AI Observability, Cloud Operations, GenAI, Bedrock, AgentCore, CloudWatch">
-    <title>Raviteja Sunkavalli | Enterprise Technologist, Cloud &amp; AI</title>
+    <meta name="keywords" content="AWS, Field CTO, Enterprise Technologist, Trusted Advisor, AI Observability, Cloud Operations, GenAI, Bedrock, AgentCore, CloudWatch, OpenTelemetry">
+    <title>Raviteja Sunkavalli | Enterprise Technologist &amp; Trusted Advisor</title>
     <link rel="icon" type="image/svg+xml" href="favicon.svg">
-    <link rel="stylesheet" href="styles.css">
+    <script>
+        /* Apply saved/system theme before first paint to avoid a flash */
+        (function () {
+            var saved = localStorage.getItem('theme');
+            if (saved === 'dark' || (!saved && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+                document.documentElement.classList.add('dark');
+            }
+        })();
+    </script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <!-- Animated Background Canvas -->
-    <canvas id="neuralCanvas"></canvas>
+
+    <!-- Ambient background -->
+    <div class="bg-scene" aria-hidden="true">
+        <div class="bg-grid"></div>
+        <div class="bg-blob blob-1"></div>
+        <div class="bg-blob blob-2"></div>
+        <div class="bg-blob blob-3"></div>
+        <div class="bg-blob blob-4"></div>
+    </div>
 
     <!-- Navigation -->
     <nav class="navbar" id="navbar">
-        <div class="container nav-container">
-            <a href="#hero" class="nav-brand">
-                <span class="brand-icon"><svg width="36" height="36" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><defs><linearGradient id="nav-bg" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#0f172a"/><stop offset="100%" stop-color="#1e1b4b"/></linearGradient><linearGradient id="nav-accent" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#818cf8"/><stop offset="100%" stop-color="#c084fc"/></linearGradient></defs><rect width="100" height="100" rx="18" fill="url(#nav-bg)"/><polyline points="12,62 28,62 35,42 42,72 50,50 58,58 65,38 72,62 88,62" fill="none" stroke="url(#nav-accent)" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" opacity="0.6"/><text x="50" y="56" font-family="Inter,Arial,sans-serif" font-size="32" font-weight="800" fill="#fff" text-anchor="middle" letter-spacing="-1">RS</text><circle cx="82" cy="24" r="6" fill="#4ade80"/><circle cx="82" cy="24" r="10" fill="none" stroke="#4ade80" stroke-width="2" opacity="0.4"/></svg></span>
-                <span class="brand-text">Raviteja Sunkavalli</span>
-            </a>
+        <div class="container nav-inner">
+            <a href="/" class="nav-brand mono" data-home>ravitejasunkavalli<span class="brand-accent">.com</span></a>
             <ul class="nav-menu" id="navMenu">
+                <li><a href="/" class="nav-link" data-home>Home</a></li>
                 <li><a href="#about" class="nav-link">About</a></li>
+                <li><a href="#skills" class="nav-link">Skills</a></li>
                 <li><a href="#speaking" class="nav-link">Speaking</a></li>
-                <li><a href="#writing" class="nav-link">Blogs</a></li>
-                <li><a href="#samples" class="nav-link">Work Samples</a></li>
+                <li><a href="#blogs" class="nav-link">Blogs</a></li>
+                <li><a href="#work-samples" class="nav-link">Work</a></li>
                 <li><a href="#credentials" class="nav-link">Credentials</a></li>
-                <li><a href="#contact" class="nav-link">Contact</a></li>
             </ul>
             <div class="nav-actions">
-                <button class="search-btn" id="searchBtn" aria-label="Search">
-                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+                <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">
+                    <svg class="moon-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></svg>
+                    <svg class="sun-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="m4.93 4.93 1.41 1.41"/><path d="m17.66 17.66 1.41 1.41"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="m6.34 17.66-1.41 1.41"/><path d="m19.07 4.93-1.41 1.41"/></svg>
+                </button>
+                <button class="search-btn mono" id="searchBtn" aria-label="Search">
+                    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
                     <kbd class="search-kbd">&#8984;K</kbd>
                 </button>
-                <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">
-                    <svg class="sun-icon" width="18" height="18" viewBox="0 0 20 20" fill="currentColor"><path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z"/></svg>
-                    <svg class="moon-icon" width="18" height="18" viewBox="0 0 20 20" fill="currentColor"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"/></svg>
-                </button>
-                <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu">
+                <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu" aria-expanded="false">
                     <span></span><span></span><span></span>
                 </button>
             </div>
         </div>
     </nav>
 
-    <!-- Hero Section - Observability Dashboard Style -->
-    <section id="hero" class="hero-section">
-        <div class="container hero-container">
-            <div class="hero-content">
-                <div class="hero-badge">
-                    <span class="badge-dot"></span>
-                    <span class="badge-highlight">Experienced Cloud and AI Technologist</span> @ AWS
-                </div>
-                <h1 class="hero-title">
-                    Hi, I'm <span class="gradient-text">Raviteja Sunkavalli</span>
-                </h1>
-                <p class="hero-subtitle">I bring enterprise cloud, operations, and AI observability expertise together to help teams turn complex platforms into systems they can trust, explain, and improve.</p>
-
-                <!-- Dashboard-style Metrics Widgets -->
-                <div class="dashboard-widgets">
-                    <div class="dash-widget">
-                        <div class="dash-widget-header">
-                            <span class="dash-widget-label">Business Supported</span>
-                            <span class="dash-widget-badge green">Healthy</span>
-                        </div>
-                        <div class="dash-widget-value">$4.2B</div>
-                        <div class="dash-widget-sub">Cloud Operations</div>
-                        <div class="dash-sparkline" data-values="3.2,3.4,3.6,3.8,3.9,4.0,4.1,4.2"></div>
-                    </div>
-                    <div class="dash-widget">
-                        <div class="dash-widget-header">
-                            <span class="dash-widget-label">Tech Blogs</span>
-                            <span class="dash-widget-badge green">+12%</span>
-                        </div>
-                        <div class="dash-widget-value">10+</div>
-                        <div class="dash-widget-sub">65,000+ views</div>
-                        <div class="dash-sparkline" data-values="5,8,12,18,25,35,48,65"></div>
-                    </div>
-                    <div class="dash-widget">
-                        <div class="dash-widget-header">
-                            <span class="dash-widget-label">Speaking Sessions</span>
-                            <span class="dash-widget-badge blue">Active</span>
-                        </div>
-                        <div class="dash-widget-value">12+</div>
-                        <div class="dash-widget-sub">re:Invent, Summits, Shows</div>
-                        <div class="dash-sparkline" data-values="2,3,4,5,7,8,10,12"></div>
-                    </div>
-                    <div class="dash-widget">
-                        <div class="dash-widget-header">
-                            <span class="dash-widget-label">Field Community</span>
-                            <span class="dash-widget-badge green">Growing</span>
-                        </div>
-                        <div class="dash-widget-value">1,500+</div>
-                        <div class="dash-widget-sub">Professionals enabled</div>
-                        <div class="dash-sparkline" data-values="400,600,800,1000,1100,1200,1350,1500"></div>
-                    </div>
-                    <div class="dash-widget">
-                        <div class="dash-widget-header">
-                            <span class="dash-widget-label">AWS Awards</span>
-                            <span class="dash-widget-badge gold">Excellence</span>
-                        </div>
-                        <div class="dash-widget-value">5</div>
-                        <div class="dash-widget-sub">Incl. 2025 Annual Award</div>
-                        <div class="dash-sparkline" data-values="1,1,2,2,3,3,4,5"></div>
-                    </div>
-                    <div class="dash-widget">
-                        <div class="dash-widget-header">
-                            <span class="dash-widget-label">Product Influence</span>
-                            <span class="dash-widget-badge blue">Impact</span>
-                        </div>
-                        <div class="dash-widget-value">3</div>
-                        <div class="dash-widget-sub">GenAI Obs, GPU Monitoring, APM</div>
-                        <div class="dash-sparkline" data-values="0,0,0,1,1,2,2,3"></div>
-                    </div>
-                </div>
-
-                <div class="hero-cta">
-                    <a href="#speaking" class="btn btn-primary">View My Talks</a>
-                    <a href="#contact" class="btn btn-ghost">Get in Touch</a>
-                </div>
+    <!-- Hero -->
+    <header id="hero" class="hero">
+        <div class="container hero-inner">
+            <div class="hero-badge reveal">
+                <span class="status-dot"></span>
+                Enterprise Technologist, Cloud &amp; AI &middot; AWS
             </div>
-            <div class="hero-visual">
-                <div class="hero-photo-wrapper">
-                    <img src="profile-photo.jpg" alt="Raviteja Sunkavalli" class="hero-photo" loading="eager">
-                    <div class="photo-ring"></div>
-                </div>
-                <div class="floating-tags">
-                    <span class="float-tag tag-1">AI Observability</span>
-                    <span class="float-tag tag-7">Go-To-Market</span>
-                    <span class="float-tag tag-2">Agentic AI</span>
-                    <span class="float-tag tag-3">CloudOps</span>
-                    <span class="float-tag tag-4">GenAI</span>
-                    <span class="float-tag tag-5">OTel</span>
-                    <span class="float-tag tag-6">Multi Cloud</span>
-                </div>
+            <h1 class="hero-name reveal">Hi, I'm <span class="hl">Raviteja Sunkavalli</span></h1>
+            <p class="hero-role reveal"><span id="roleText">Enterprise Technologist</span><span class="cursor cursor-sm" id="roleCursor" aria-hidden="true"></span></p>
+            <p class="hero-desc reveal">Advising Fortune 500 and public-sector leaders as a field CTO for cloud operations and AI observability: architecting agentic AI platforms enterprises can trust, shaping AWS product roadmaps, and driving go-to-market for what ships next.</p>
+            <div class="hero-tags reveal">
+                <span class="pill pill-green mono">Agentic AI Observability</span>
+                <span class="pill pill-blue mono">Cloud Operations</span>
+                <span class="pill pill-purple mono">GTM Strategy</span>
+                <span class="pill pill-pink mono">C-Suite Advisory</span>
+            </div>
+            <div class="hero-cta reveal">
+                <a href="#impact" class="btn btn-primary">Explore My Impact <span class="btn-arrow">&darr;</span></a>
+                <a href="#contact" class="btn btn-outline">Get In Touch
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+                </a>
+            </div>
+            <div class="hero-social reveal">
+                <a href="https://github.com/sunkavar" target="_blank" rel="noopener" aria-label="GitHub" class="social-github">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+                </a>
+                <a href="https://www.linkedin.com/in/raviteja-sunkavalli" target="_blank" rel="noopener" aria-label="LinkedIn" class="social-linkedin">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+                </a>
+                <a href="#contact" aria-label="Email" class="social-mail">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+                </a>
             </div>
         </div>
-        <div class="hero-scroll-indicator">
-            <span>Scroll to explore</span>
-            <div class="scroll-arrow"></div>
-        </div>
-    </section>
+        <a href="#about" class="scroll-hint" aria-label="Scroll to about section"><span class="scroll-pill"></span></a>
+    </header>
 
-    <!-- About Section -->
-    <section id="about" class="section">
+    <!-- About -->
+    <section id="about" class="section section-tinted">
         <div class="container">
-            <div class="section-header">
-                <span class="section-tag">About Me</span>
-                <h2 class="section-title">Architecting at the Edge of AI &amp; Cloud</h2>
-            </div>
+            <p class="kicker mono reveal">ABOUT ME</p>
+            <h2 class="display-title reveal">Architecting at the edge of <span class="hl">AI &amp; Cloud.</span></h2>
             <div class="about-grid">
-                <div class="about-text">
-                    <p>I'm a Sr. Worldwide Specialist Solutions Architect at AWS supporting a <strong>$4.2B Cloud Operations business</strong>, specializing in LLM &amp; Agentic AI Observability. I partner with Fortune 500 and public-sector customers to architect resilient cloud solutions and drive global Go-to-Market (GTM) strategies for newly released AWS features.</p>
-                    <p>I've influenced <strong>3 major CloudWatch product launches</strong> (GenAI Observability, Infrastructure GPU Monitoring, and Application Performance Monitoring) by channeling insights from <strong>enterprise engagements</strong> into AWS product teams. My technical content reaches practitioners at scale through <strong>10+ blog posts (65,000+ views)</strong> and conference sessions at <strong>AWS re:Invent and Summits, reaching 5,000+ practitioners in-person</strong>.</p>
-                    <p>Beyond customer work, I support the worldwide <strong>AWS Technical Field Community of 1,500+ customer-facing technical professionals</strong> with field enablement modules, reference architectures, and best practices guides. I contribute to flagship learning assets including the <strong>One Observability Workshop (60,000+ users, 5M+ page views)</strong> and the <strong>AWS Observability Best Practices Guide (250,000+ annual views)</strong>.</p>
-                    <p>Recognized with <strong>5 AWS awards</strong> including the 2025 Annual Award for Customer Obsession, AWSome Builder, Wise Guru, and Knowledge Champ for technical contributions, mentoring, and thought leadership.</p>
+                <div class="about-photo-col reveal">
+                    <div class="about-photo-frame">
+                        <img src="profile-photo.jpg" alt="Raviteja Sunkavalli" class="about-photo" loading="lazy">
+                    </div>
+                    <div class="about-photo-caption mono">
+                        <span class="status-dot"></span> Sr. WW Specialist SA @ AWS &middot; Seattle, WA
+                    </div>
                 </div>
-                <div class="about-focus-areas">
-                    <div class="focus-card">
-                        <div class="focus-icon">&#x1F52D;</div>
+                <div class="about-text reveal">
+                    <p>I'm a Senior Worldwide Specialist Solutions Architect at AWS, focused on <strong>Cloud Operations and LLM &amp; Agentic AI Observability</strong>. My work sits at the intersection of customers, product, and the field: helping enterprises run AI workloads they can trust, and helping AWS build the tools that make that possible.</p>
+                    <p>Fortune 500 and public-sector teams usually come to me with the same question in different forms: <strong>how do we operate this at scale?</strong> I work alongside their architects and executives to design observability and operations foundations that hold up in production, and to make the case for them as clearly in the boardroom as in the terminal.</p>
+                    <p>What I learn in the field goes back into the product. I channel customer insights into AWS product teams, shape go-to-market for newly released capabilities, and teach what works through <strong>AWS blogs, re:Invent and Summit sessions, and open workshops</strong>, because the fastest way to raise the bar is to share it.</p>
+                    <p>The throughline in all of it: <strong>earn trust with substance</strong>. Fewer slides, more working architectures. That approach earned the 2025 AWS Annual Award for Customer Obsession.</p>
+                </div>
+            </div>
+
+            <h3 class="sub-label mono reveal">THE JOURNEY</h3>
+            <div class="timeline reveal">
+                <div class="timeline-item">
+                    <span class="timeline-dot" aria-hidden="true"></span>
+                    <span class="timeline-year mono">2018</span>
+                    <h4>B.Tech, Vignan's University</h4>
+                    <p>Electronics &amp; Communication Engineering in Guntur, India. University Gold Medal.</p>
+                </div>
+                <div class="timeline-item">
+                    <span class="timeline-dot" aria-hidden="true"></span>
+                    <span class="timeline-year mono">2020</span>
+                    <h4>M.S., Rochester Institute of Technology</h4>
+                    <p>Telecommunication Engineering Technology in Rochester, NY.</p>
+                </div>
+                <div class="timeline-item">
+                    <span class="timeline-dot" aria-hidden="true"></span>
+                    <span class="timeline-year mono">2020 &ndash; 2024</span>
+                    <h4>Senior Cloud Support Engineer, AWS</h4>
+                    <p>Learned enterprise cloud from the trenches: 1,000+ complex cases resolved, SME for Systems Manager and EC2 Windows.</p>
+                </div>
+                <div class="timeline-item">
+                    <span class="timeline-dot" aria-hidden="true"></span>
+                    <span class="timeline-year mono">2025 &ndash; Present</span>
+                    <h4>Sr. Worldwide Specialist SA, Cloud Operations, AWS</h4>
+                    <p>From resolving incidents to advising Fortune 500 and public-sector leaders worldwide.</p>
+                </div>
+                <div class="timeline-item">
+                    <span class="timeline-dot" aria-hidden="true"></span>
+                    <span class="timeline-year mono">Today</span>
+                    <h4>Field CTO for AI Observability</h4>
+                    <p>Shaping how enterprises observe, evaluate, and trust agentic AI. Based in Seattle, WA.</p>
+                </div>
+            </div>
+
+            <h3 class="sub-label mono reveal">WHAT I FOCUS ON</h3>
+            <div class="focus-cards reveal">
+                <div class="focus-card">
+                    <div class="focus-head">
+                        <span class="focus-icon icon-purple" aria-hidden="true">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12h-2.48a2 2 0 0 0-1.93 1.46l-2.35 8.36a.25.25 0 0 1-.48 0L9.24 2.18a.25.25 0 0 0-.48 0l-2.35 8.36A2 2 0 0 1 4.49 12H2"/></svg>
+                        </span>
                         <h3>LLM &amp; Agentic AI Observability</h3>
-                        <p>End-to-end monitoring for generative AI and agentic workloads using CloudWatch, OpenTelemetry, Bedrock AgentCore, and Strands Agent SDK.</p>
                     </div>
-                    <div class="focus-card">
-                        <div class="focus-icon">&#x26A1;</div>
+                    <p>End-to-end monitoring for GenAI and agentic workloads with CloudWatch, OpenTelemetry, Bedrock AgentCore, and Strands Agents.</p>
+                </div>
+                <div class="focus-card">
+                    <div class="focus-head">
+                        <span class="focus-icon icon-blue" aria-hidden="true">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17.5 19H9a7 7 0 1 1 6.71-9h1.79a4.5 4.5 0 1 1 0 9Z"/></svg>
+                        </span>
                         <h3>Cloud Operations at Scale</h3>
-                        <p>Designing scalable, resilient operational frameworks for Fortune 500 enterprise infrastructure.</p>
                     </div>
-                    <div class="focus-card">
-                        <div class="focus-icon">&#x1F680;</div>
+                    <p>Resilient operational frameworks that keep Fortune 500 infrastructure dependable in production.</p>
+                </div>
+                <div class="focus-card">
+                    <div class="focus-head">
+                        <span class="focus-icon icon-green" aria-hidden="true">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z"/><path d="m12 15-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z"/><path d="M9 12H4s.55-3.03 2-4c1.62-1.08 5 0 5 0"/><path d="M12 15v5s3.03-.55 4-2c1.08-1.62 0-5 0-5"/></svg>
+                        </span>
                         <h3>Go-to-Market Strategy</h3>
-                        <p>Partnering with Product and Business Development teams to define technical components of GTM strategies for newly released AWS features.</p>
                     </div>
-                    <div class="focus-card">
-                        <div class="focus-icon">&#x1F6E1;&#xFE0F;</div>
-                        <h3>Incident Management</h3>
-                        <p>Streamlining incident response workflows with Systems Manager, automated remediation, and AIOps-powered MCP servers.</p>
+                    <p>Defining the technical components of GTM for newly released AWS features with Product and BD teams.</p>
+                </div>
+                <div class="focus-card">
+                    <div class="focus-head">
+                        <span class="focus-icon icon-orange" aria-hidden="true">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h20"/><path d="M21 3v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V3"/><path d="m7 21 5-5 5 5"/></svg>
+                        </span>
+                        <h3>C-Suite &amp; TDM Advisory</h3>
                     </div>
+                    <p>Executive briefings and product roadmap influence grounded in real enterprise engagements.</p>
                 </div>
             </div>
         </div>
+        <a href="#impact" class="scroll-hint section-hint" aria-label="Scroll to next section"><span class="scroll-pill"></span></a>
     </section>
 
-    <!-- Speaking Section -->
-    <section id="speaking" class="section section-alt">
+    <!-- Impact / Numbers -->
+    <section id="impact" class="section">
         <div class="container">
-            <div class="section-header">
-                <span class="section-tag">Speaking</span>
-                <h2 class="section-title">Conference Talks &amp; Live Sessions</h2>
-                <p class="section-subtitle">Sharing insights on AI observability and cloud operations at major industry events</p>
+            <p class="kicker mono reveal">SELECTED IMPACT</p>
+            <h2 class="display-title reveal">Trust I earned, <span class="hl">at scale.</span></h2>
+            <p class="section-lede reveal">A field CTO's scorecard: enterprise advisory, product influence, and technical thought leadership across the world's largest cloud operations business.</p>
+
+            <div class="stat-grid reveal">
+                <div class="stat-card">
+                    <span class="stat-icon icon-blue" aria-hidden="true">
+                        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/></svg>
+                    </span>
+                    <div class="stat-card-value mono" data-count="4.2" data-prefix="$" data-suffix="B" data-decimals="1">$0B</div>
+                    <h3 class="stat-card-title">Cloud Ops Business</h3>
+                    <p class="stat-card-label">Supported worldwide as a trusted advisor</p>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-icon icon-green" aria-hidden="true">
+                        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/><polyline points="16 7 22 7 22 13"/></svg>
+                    </span>
+                    <div class="stat-card-value mono" data-count="1" data-prefix="$" data-suffix="B+">$0B+</div>
+                    <h3 class="stat-card-title">Pipeline Generated</h3>
+                    <p class="stat-card-label">Through GTM strategy &amp; C-suite briefings</p>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-icon icon-purple" aria-hidden="true">
+                        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 7v14"/><path d="M3 18a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h5a4 4 0 0 1 4 4 4 4 0 0 1 4-4h5a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1h-6a3 3 0 0 0-3 3 3 3 0 0 0-3-3z"/></svg>
+                    </span>
+                    <div class="stat-card-value mono" data-count="150" data-suffix="K+">0K+</div>
+                    <h3 class="stat-card-title">Blog Views</h3>
+                    <p class="stat-card-label">Across 10+ AWS technical blog posts</p>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-icon icon-amber" aria-hidden="true">
+                        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 14c.2-1 .7-1.7 1.5-2.5 1-.9 1.5-2.2 1.5-3.5A6 6 0 0 0 6 8c0 1 .2 2.2 1.5 3.5.7.7 1.3 1.5 1.5 2.5"/><path d="M9 18h6"/><path d="M10 22h4"/></svg>
+                    </span>
+                    <div class="stat-card-value mono" data-count="4">0</div>
+                    <h3 class="stat-card-title">Product Launches Influenced</h3>
+                    <p class="stat-card-label">GenAI Observability, MCP Servers, Logs Centralization &amp; Systems Manager</p>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-icon icon-cyan" aria-hidden="true">
+                        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                    </span>
+                    <div class="stat-card-value mono" data-count="5000" data-suffix="+">0+</div>
+                    <h3 class="stat-card-title">Practitioners Reached</h3>
+                    <p class="stat-card-label">In person at re:Invent, Summits &amp; partner events</p>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-icon icon-red" aria-hidden="true">
+                        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3Z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><line x1="12" x2="12" y1="19" y2="22"/></svg>
+                    </span>
+                    <div class="stat-card-value mono" data-count="12" data-suffix="+">0+</div>
+                    <h3 class="stat-card-title">Speaking Sessions</h3>
+                    <p class="stat-card-label">AWS re:Invent, Summits &amp; the CloudOps Show</p>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-icon icon-orange" aria-hidden="true">
+                        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"/><path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"/><path d="M4 22h16"/><path d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22"/><path d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22"/><path d="M18 2H6v7a6 6 0 0 0 12 0V2Z"/></svg>
+                    </span>
+                    <div class="stat-card-value mono" data-count="5">0</div>
+                    <h3 class="stat-card-title">AWS Awards</h3>
+                    <p class="stat-card-label">Including the 2025 Annual Award for Customer Obsession</p>
+                </div>
             </div>
+        </div>
+        <a href="#skills" class="scroll-hint section-hint" aria-label="Scroll to next section"><span class="scroll-pill"></span></a>
+    </section>
+
+    <!-- Tech Stack -->
+    <section id="skills" class="section section-tinted">
+        <div class="container">
+            <p class="kicker mono reveal">SKILLS &middot; TECH STACK</p>
+            <h2 class="display-title reveal"><span class="hl">Technologies</span> I work with.</h2>
+            <p class="section-lede reveal">The platforms, protocols, and practices behind trusted enterprise AI.</p>
+        </div>
+
+        <div class="marquee-zone reveal">
+            <div class="marquee" data-direction="left">
+                <div class="marquee-track">
+                    <span class="chip mono">Amazon CloudWatch</span>
+                    <span class="chip mono">Amazon Bedrock</span>
+                    <span class="chip mono">Bedrock AgentCore</span>
+                    <span class="chip mono">OpenTelemetry</span>
+                    <span class="chip mono">ADOT</span>
+                    <span class="chip mono">Strands Agents SDK</span>
+                    <span class="chip mono">MCP</span>
+                    <span class="chip mono">Application Signals</span>
+                    <span class="chip mono">Prometheus</span>
+                    <span class="chip mono">Grafana</span>
+                    <span class="chip mono">X-Ray</span>
+                    <span class="chip mono">Systems Manager</span>
+                </div>
+            </div>
+            <div class="marquee" data-direction="right">
+                <div class="marquee-track">
+                    <span class="chip mono">Python</span>
+                    <span class="chip mono">Kubernetes</span>
+                    <span class="chip mono">EKS</span>
+                    <span class="chip mono">ECS</span>
+                    <span class="chip mono">Lambda</span>
+                    <span class="chip mono">Terraform</span>
+                    <span class="chip mono">CDK</span>
+                    <span class="chip mono">CloudFormation</span>
+                    <span class="chip mono">Docker</span>
+                    <span class="chip mono">Azure</span>
+                    <span class="chip mono">RAG</span>
+                    <span class="chip mono">Agent Evaluations</span>
+                    <span class="chip mono">Prompt Engineering</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="skill-grid">
+                <div class="skill-card reveal">
+                    <div class="skill-card-top">
+                        <span class="skill-icon-box icon-purple" aria-hidden="true">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12h-2.48a2 2 0 0 0-1.93 1.46l-2.35 8.36a.25.25 0 0 1-.48 0L9.24 2.18a.25.25 0 0 0-.48 0l-2.35 8.36A2 2 0 0 1 4.49 12H2"/></svg>
+                        </span>
+                        <span class="skill-tag mono">AI/ML</span>
+                    </div>
+                    <h3>LLM &amp; GenAI Observability</h3>
+                    <p>CloudWatch GenAI Observability, agent tracing, and eval-driven development for production AI workloads</p>
+                    <div class="skill-chips">
+                        <span class="chip chip-sm mono">GenAI Observability</span>
+                        <span class="chip chip-sm mono">Amazon Bedrock</span>
+                        <span class="chip chip-sm mono">RAG</span>
+                        <span class="chip chip-sm mono">Agent Evaluations</span>
+                        <span class="chip chip-sm mono">Prompt Engineering</span>
+                    </div>
+                </div>
+                <div class="skill-card reveal">
+                    <div class="skill-card-top">
+                        <span class="skill-icon-box icon-cyan" aria-hidden="true">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 8V4H8"/><rect width="16" height="12" x="4" y="8" rx="2"/><path d="M2 14h2"/><path d="M20 14h2"/><path d="M15 13v2"/><path d="M9 13v2"/></svg>
+                        </span>
+                        <span class="skill-tag mono">AI/ML</span>
+                    </div>
+                    <h3>AI Agents &amp; Automation</h3>
+                    <p>Strands Agents, Bedrock AgentCore, MCP servers, and agentic workflow orchestration</p>
+                    <div class="skill-chips">
+                        <span class="chip chip-sm mono">Strands Agents SDK</span>
+                        <span class="chip chip-sm mono">Bedrock AgentCore</span>
+                        <span class="chip chip-sm mono">LangGraph SDK</span>
+                        <span class="chip chip-sm mono">Vercel AI SDK</span>
+                        <span class="chip chip-sm mono">Claude</span>
+                        <span class="chip chip-sm mono">Codex</span>
+                        <span class="chip chip-sm mono">Kiro</span>
+                        <span class="chip chip-sm mono">MCP</span>
+                        <span class="chip chip-sm mono">Python</span>
+                        <span class="chip chip-sm mono">Fine-Tuning</span>
+                    </div>
+                </div>
+                <div class="skill-card reveal">
+                    <div class="skill-card-top">
+                        <span class="skill-icon-box icon-green" aria-hidden="true">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="14" x="2" y="3" rx="2"/><line x1="8" x2="16" y1="21" y2="21"/><line x1="12" x2="12" y1="17" y2="21"/></svg>
+                        </span>
+                        <span class="skill-tag mono">Monitoring</span>
+                    </div>
+                    <h3>Observability Stack</h3>
+                    <p>Full-stack monitoring, distributed tracing, and log analytics for enterprise workloads</p>
+                    <div class="skill-chips">
+                        <span class="chip chip-sm mono">Amazon CloudWatch</span>
+                        <span class="chip chip-sm mono">OpenTelemetry / ADOT</span>
+                        <span class="chip chip-sm mono">Application Signals</span>
+                        <span class="chip chip-sm mono">Prometheus</span>
+                        <span class="chip chip-sm mono">Grafana</span>
+                        <span class="chip chip-sm mono">X-Ray</span>
+                    </div>
+                </div>
+                <div class="skill-card reveal">
+                    <div class="skill-card-top">
+                        <span class="skill-icon-box icon-blue" aria-hidden="true">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17.5 19H9a7 7 0 1 1 6.71-9h1.79a4.5 4.5 0 1 1 0 9Z"/></svg>
+                        </span>
+                        <span class="skill-tag mono">Cloud</span>
+                    </div>
+                    <h3>Multi-Cloud Architecture</h3>
+                    <p>AWS and Azure expertise with hybrid strategies and cloud-agnostic operations at enterprise scale</p>
+                    <div class="skill-chips">
+                        <span class="chip chip-sm mono">AWS</span>
+                        <span class="chip chip-sm mono">Azure</span>
+                        <span class="chip chip-sm mono">EKS</span>
+                        <span class="chip chip-sm mono">ECS</span>
+                        <span class="chip chip-sm mono">Lambda</span>
+                        <span class="chip chip-sm mono">Kubernetes</span>
+                        <span class="chip chip-sm mono">Docker</span>
+                    </div>
+                </div>
+                <div class="skill-card reveal">
+                    <div class="skill-card-top">
+                        <span class="skill-icon-box icon-orange" aria-hidden="true">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+                        </span>
+                        <span class="skill-tag mono">Automation</span>
+                    </div>
+                    <h3>Infrastructure as Code</h3>
+                    <p>Immutable infrastructure and automated provisioning across enterprise environments</p>
+                    <div class="skill-chips">
+                        <span class="chip chip-sm mono">Terraform</span>
+                        <span class="chip chip-sm mono">AWS CDK</span>
+                        <span class="chip chip-sm mono">CloudFormation</span>
+                        <span class="chip chip-sm mono">CI/CD</span>
+                        <span class="chip chip-sm mono">Bash</span>
+                        <span class="chip chip-sm mono">Git</span>
+                    </div>
+                </div>
+                <div class="skill-card reveal">
+                    <div class="skill-card-top">
+                        <span class="skill-icon-box icon-red" aria-hidden="true">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/><path d="M12 8v4"/><path d="M12 16h.01"/></svg>
+                        </span>
+                        <span class="skill-tag mono">Operations</span>
+                    </div>
+                    <h3>Incident Management &amp; AIOps</h3>
+                    <p>Automated incident response workflows and AIOps-powered remediation at scale</p>
+                    <div class="skill-chips">
+                        <span class="chip chip-sm mono">Systems Manager</span>
+                        <span class="chip chip-sm mono">Incident Manager</span>
+                        <span class="chip chip-sm mono">CloudWatch MCP Servers</span>
+                        <span class="chip chip-sm mono">Automation</span>
+                        <span class="chip chip-sm mono">SQL</span>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <a href="#speaking" class="scroll-hint section-hint" aria-label="Scroll to next section"><span class="scroll-pill"></span></a>
+    </section>
+
+    <!-- Speaking -->
+    <section id="speaking" class="section">
+        <div class="container">
+            <p class="kicker mono reveal">SPEAKING</p>
+            <h2 class="display-title reveal">Conference talks &amp; <span class="hl">live sessions.</span></h2>
+            <p class="section-lede reveal">Sharing AI observability and cloud operations insights at major industry events.</p>
             <div class="events-grid">
-                <div class="events-top-row">
-                    <article class="event-card featured-primary">
-                        <div class="event-image-wrapper">
-                            <img src="images/reinvent2025-1.jpg" alt="re:Invent 2025 COP418" class="event-img" loading="lazy">
-                            <span class="event-badge">Featured</span>
-                        </div>
-                        <div class="event-body">
-                            <div class="event-meta">
-                                <span class="event-venue">AWS re:Invent 2025</span>
-                                <span class="event-type-tag">Code Talk</span>
-                            </div>
-                            <time class="event-date">December 2025</time>
-                            <h3 class="event-title">Monitor the quality and accuracy of your generative AI workloads (COP418)</h3>
-                            <p class="event-desc">Live coding session on Amazon CloudWatch AI observability. Build agentic applications using Amazon Bedrock AgentCore and Amazon EKS with Strands Agent SDK, automatically instrumented through AWS Distro for OpenTelemetry (ADOT).</p>
-                            <div class="event-tags">
-                                <span class="tag">AI Observability</span>
-                                <span class="tag">Bedrock AgentCore</span>
-                                <span class="tag">ADOT</span>
-                            </div>
-                            <a href="https://www.youtube.com/watch?v=YMiHLRF4a5M&list=PL2yQDdvlhXf8fUGVeljVNpQwugV7XBZRt&index=3" class="event-link" target="_blank" rel="noopener">Watch Video <span>&rarr;</span></a>
-                        </div>
-                    </article>
-
-                    <article class="event-card featured-secondary">
-                        <div class="event-image-wrapper">
-                            <img src="images/aws-stc-2026.jpg" alt="AWS Specialist Tech Conference 2026" class="event-img" loading="lazy">
-                        </div>
-                        <div class="event-body">
-                            <div class="event-meta">
-                                <span class="event-venue">AWS Specialist Tech Conference 2026</span>
-                                <span class="event-type-tag">Technical Session</span>
-                            </div>
-                            <time class="event-date">April 2026</time>
-                            <h3 class="event-title">Unified Observability and Eval-Driven Development for Generative AI Agents with Amazon CloudWatch</h3>
-                            <p class="event-desc">Presented a talk on unified observability and eval-driven development for generative AI agents with Amazon CloudWatch.</p>
-                            <div class="event-tags">
-                                <span class="tag">AI Observability</span>
-                                <span class="tag">GenAI Agents</span>
-                                <span class="tag">CloudWatch</span>
-                            </div>
-                        </div>
-                    </article>
-                </div>
-
-                <article class="event-card">
-                    <div class="event-image-wrapper">
-                        <img src="images/reinvent2024-1.jpg" alt="re:Invent 2024 COP318" class="event-img" loading="lazy">
+                <article class="event-card featured reveal">
+                    <div class="event-media">
+                        <img src="images/reinvent2025-1.jpg" alt="re:Invent 2025 COP418" loading="lazy">
+                        <span class="event-flag mono">FEATURED</span>
                     </div>
                     <div class="event-body">
-                        <div class="event-meta">
-                            <span class="event-venue">AWS re:Invent 2024</span>
-                            <span class="event-type-tag">Code Talk</span>
-                        </div>
-                        <time class="event-date">December 2024</time>
-                        <h3 class="event-title">Streamlining incident response with AWS Systems Manager (COP318)</h3>
-                        <p class="event-desc">Hands-on session demonstrating how to streamline incident response workflows using AWS Systems Manager capabilities.</p>
-                        <div class="event-tags">
-                            <span class="tag">Systems Manager</span>
-                            <span class="tag">Incident Response</span>
-                        </div>
-                        <a href="https://github.com/sunkavar/reInvent2024-COP318" class="event-link" target="_blank" rel="noopener">View Code <span>&rarr;</span></a>
+                        <div class="event-meta mono"><span>AWS re:Invent 2025</span><span class="event-type">Code Talk</span></div>
+                        <h3>Monitor the quality and accuracy of your generative AI workloads (COP418)</h3>
+                        <p>Live coding session on CloudWatch AI observability: agentic apps on Bedrock AgentCore and EKS with Strands Agents, auto-instrumented via ADOT.</p>
+                        <a href="https://www.youtube.com/watch?v=YMiHLRF4a5M&list=PL2yQDdvlhXf8fUGVeljVNpQwugV7XBZRt&index=3" target="_blank" rel="noopener" class="text-link">Watch Video &rarr;</a>
                     </div>
                 </article>
-
-                <article class="event-card">
-                    <div class="event-image-wrapper">
-                        <img src="images/summit-la-1.jpg" alt="AWS Summit LA COP401" class="event-img" loading="lazy">
-                    </div>
+                <article class="event-card reveal">
+                    <div class="event-media"><img src="images/aws-stc-2026.jpg" alt="AWS Specialist Tech Conference 2026" loading="lazy"></div>
                     <div class="event-body">
-                        <div class="event-meta">
-                            <span class="event-venue">AWS Summit LA</span>
-                            <span class="event-type-tag">Code Talk</span>
-                        </div>
-                        <time class="event-date">September 2025</time>
-                        <h3 class="event-title">Agentic AI Observability with Amazon CloudWatch (COP401)</h3>
-                        <p class="event-desc">Hands-on live coding: Build AI agents with contextual telemetry, seamless auto-instrumentation with ADOT SDK, real-time visualization, and troubleshooting patterns across Bedrock AgentCore, EKS, ECS, and EC2.</p>
-                        <div class="event-tags">
-                            <span class="tag">Agentic AI</span>
-                            <span class="tag">CloudWatch</span>
-                            <span class="tag">Multi-Platform</span>
-                        </div>
+                        <div class="event-meta mono"><span>AWS Specialist Tech Conf 2026</span><span class="event-type">Technical Session</span></div>
+                        <h3>Unified Observability and Eval-Driven Development for GenAI Agents</h3>
+                        <p>Unified observability and eval-driven development for generative AI agents with Amazon CloudWatch.</p>
                     </div>
                 </article>
-
-                <article class="event-card">
-                    <div class="event-image-wrapper">
-                        <img src="images/summit-nyc-1.jpg" alt="AWS Summit NYC COP301" class="event-img" loading="lazy">
-                    </div>
+                <article class="event-card reveal">
+                    <div class="event-media"><img src="images/genai-webinar-2.png" alt="Beyond Auto-Dashboards: Querying and Analytics for GenAI Observability" loading="lazy"></div>
                     <div class="event-body">
-                        <div class="event-meta">
-                            <span class="event-venue">AWS Summit NYC</span>
-                            <span class="event-type-tag">Builders Session</span>
-                        </div>
-                        <time class="event-date">July 2025</time>
-                        <h3 class="event-title">Hands-on experience with Amazon CloudWatch (COP301)</h3>
-                        <p class="event-desc">Learn hands-on from basic infrastructure monitoring to APM and advanced digital experience monitoring using CloudWatch.</p>
-                        <div class="event-tags">
-                            <span class="tag">CloudWatch</span>
-                            <span class="tag">APM</span>
-                            <span class="tag">Monitoring</span>
-                        </div>
+                        <div class="event-meta mono"><span>GenAI Observability Series</span><span class="event-type">Webinar</span></div>
+                        <h3>Beyond Auto-Dashboards: Querying and Analytics for GenAI Observability</h3>
+                        <p>Building custom observability for Bedrock and AgentCore: model invocation logging, ADOT agent telemetry, persona-based DevOps/FinOps dashboards, metric filters, and Logs Insights queries.</p>
+                        <a href="https://www.youtube.com/watch?v=fRlG7OTARSc" target="_blank" rel="noopener" class="text-link">Watch Video &rarr;</a>
                     </div>
                 </article>
-
-                <article class="event-card">
-                    <div class="event-image-wrapper">
-                        <img src="images/cloudopsshow-ep16.png" alt="CloudOps Show Episode 16" class="event-img" loading="lazy">
-                    </div>
+                <article class="event-card reveal">
+                    <div class="event-media"><img src="images/genai-webinar-1.png" alt="CloudWatch GenAI Observability for Amazon Bedrock and Bedrock AgentCore" loading="lazy"></div>
                     <div class="event-body">
-                        <div class="event-meta">
-                            <span class="event-venue">CloudOps Show - Ep 16</span>
-                            <span class="event-type-tag">YouTube</span>
-                        </div>
-                        <time class="event-date">September 2025</time>
-                        <h3 class="event-title">Observe your Agentic AI apps hosted anywhere</h3>
-                        <p class="event-desc">Learn how Amazon CloudWatch enables AI observability and troubleshooting across Bedrock AgentCore, EC2, EKS, and ECS with Strands Agent SDK.</p>
-                        <div class="event-tags">
-                            <span class="tag">Multi-Platform</span>
-                            <span class="tag">AI Observability</span>
-                        </div>
-                        <a href="https://www.youtube.com/watch?v=oS1vBeidLNs&list=PLehXSATXjcQHj8bPSf0uZuQBoxJ7a7ag7&index=7" class="event-link" target="_blank" rel="noopener">Watch Episode <span>&rarr;</span></a>
+                        <div class="event-meta mono"><span>GenAI Observability Series</span><span class="event-type">Webinar</span></div>
+                        <h3>CloudWatch GenAI Observability for Amazon Bedrock and Bedrock AgentCore</h3>
+                        <p>From chatbots to agentic AI: monitoring non-deterministic agents in production with AgentCore Evaluations, end-to-end tracing, and a continuous improvement loop to full rollout.</p>
+                        <a href="https://www.youtube.com/watch?v=fEYPUNOjnGs" target="_blank" rel="noopener" class="text-link">Watch Video &rarr;</a>
                     </div>
                 </article>
-
-                <article class="event-card">
-                    <div class="event-image-wrapper">
-                        <img src="images/cloudopsshow-ep17.png" alt="CloudOps Show Episode 17" class="event-img" loading="lazy">
-                    </div>
+                <article class="event-card reveal">
+                    <div class="event-media"><img src="images/reinvent2024-1.jpg" alt="re:Invent 2024 COP318" loading="lazy"></div>
                     <div class="event-body">
-                        <div class="event-meta">
-                            <span class="event-venue">CloudOps Show - Ep 17</span>
-                            <span class="event-type-tag">YouTube</span>
-                        </div>
-                        <time class="event-date">October 2025</time>
-                        <h3 class="event-title">Logs Centralization with Amazon CloudWatch</h3>
-                        <p class="event-desc">Spotlight on CloudWatch Logs centralization features that simplify multi-account and multi-region log management.</p>
-                        <div class="event-tags">
-                            <span class="tag">Log Management</span>
-                            <span class="tag">Multi-Account</span>
-                        </div>
-                        <a href="https://www.youtube.com/watch?v=FGRurnX6iW8&list=PLehXSATXjcQHj8bPSf0uZuQBoxJ7a7ag7&index=6" class="event-link" target="_blank" rel="noopener">Watch Episode <span>&rarr;</span></a>
+                        <div class="event-meta mono"><span>AWS re:Invent 2024</span><span class="event-type">Code Talk</span></div>
+                        <h3>Streamlining incident response with AWS Systems Manager (COP318)</h3>
+                        <p>Hands-on session demonstrating streamlined incident response workflows with Systems Manager.</p>
+                        <a href="https://github.com/sunkavar/reInvent2024-COP318" target="_blank" rel="noopener" class="text-link">View Code &rarr;</a>
                     </div>
                 </article>
-
-                <article class="event-card">
-                    <div class="event-image-wrapper">
-                        <img src="images/partner-equip-1.jpg" alt="Partner Equip" class="event-img" loading="lazy">
-                    </div>
+                <article class="event-card reveal">
+                    <div class="event-media"><img src="images/summit-la-1.jpg" alt="AWS Summit LA COP401" loading="lazy"></div>
                     <div class="event-body">
-                        <div class="event-meta">
-                            <span class="event-venue">Partner Equip</span>
-                            <span class="event-type-tag">Partner Event</span>
-                        </div>
-                        <time class="event-date">May 2025</time>
-                        <h3 class="event-title">Scaling IT with next-gen of AWS Systems Manager</h3>
-                        <p class="event-desc">Partner enablement session on the latest AWS Systems Manager capabilities for scaling IT operations.</p>
-                        <div class="event-tags">
-                            <span class="tag">Systems Manager</span>
-                            <span class="tag">Partner Enablement</span>
-                        </div>
+                        <div class="event-meta mono"><span>AWS Summit LA</span><span class="event-type">Code Talk</span></div>
+                        <h3>Agentic AI Observability with Amazon CloudWatch (COP401)</h3>
+                        <p>Live coding: AI agents with contextual telemetry and ADOT auto-instrumentation across AgentCore, EKS, ECS, and EC2.</p>
+                    </div>
+                </article>
+                <article class="event-card reveal">
+                    <div class="event-media"><img src="images/summit-nyc-1.jpg" alt="AWS Summit NYC COP301" loading="lazy"></div>
+                    <div class="event-body">
+                        <div class="event-meta mono"><span>AWS Summit NYC</span><span class="event-type">Builders Session</span></div>
+                        <h3>Hands-on experience with Amazon CloudWatch (COP301)</h3>
+                        <p>From infrastructure monitoring to APM and advanced digital experience monitoring with CloudWatch.</p>
+                    </div>
+                </article>
+                <article class="event-card reveal">
+                    <div class="event-media"><img src="images/cloudopsshow-ep16.png" alt="CloudOps Show Episode 16" loading="lazy"></div>
+                    <div class="event-body">
+                        <div class="event-meta mono"><span>CloudOps Show &middot; Ep 16</span><span class="event-type">YouTube</span></div>
+                        <h3>Observe your Agentic AI apps hosted anywhere</h3>
+                        <p>CloudWatch AI observability and troubleshooting across Bedrock AgentCore, EC2, EKS, and ECS.</p>
+                        <a href="https://www.youtube.com/watch?v=oS1vBeidLNs&list=PLehXSATXjcQHj8bPSf0uZuQBoxJ7a7ag7&index=7" target="_blank" rel="noopener" class="text-link">Watch Episode &rarr;</a>
+                    </div>
+                </article>
+                <article class="event-card reveal">
+                    <div class="event-media"><img src="images/cloudopsshow-ep17.png" alt="CloudOps Show Episode 17" loading="lazy"></div>
+                    <div class="event-body">
+                        <div class="event-meta mono"><span>CloudOps Show &middot; Ep 17</span><span class="event-type">YouTube</span></div>
+                        <h3>Logs Centralization with Amazon CloudWatch</h3>
+                        <p>CloudWatch Logs centralization features that simplify multi-account, multi-region log management.</p>
+                        <a href="https://www.youtube.com/watch?v=FGRurnX6iW8&list=PLehXSATXjcQHj8bPSf0uZuQBoxJ7a7ag7&index=6" target="_blank" rel="noopener" class="text-link">Watch Episode &rarr;</a>
+                    </div>
+                </article>
+                <article class="event-card reveal">
+                    <div class="event-media"><img src="images/partner-equip-1.jpg" alt="Partner Equip" loading="lazy"></div>
+                    <div class="event-body">
+                        <div class="event-meta mono"><span>Partner Equip</span><span class="event-type">Partner Event</span></div>
+                        <h3>Scaling IT with next-gen AWS Systems Manager</h3>
+                        <p>Partner enablement on the latest Systems Manager capabilities for scaling IT operations.</p>
                     </div>
                 </article>
             </div>
         </div>
+        <a href="#blogs" class="scroll-hint section-hint" aria-label="Scroll to next section"><span class="scroll-pill"></span></a>
     </section>
 
-    <!-- Blogs Section -->
-    <section id="writing" class="section section-alt">
+    <!-- Blogs -->
+    <section id="blogs" class="section section-tinted">
         <div class="container">
-            <div class="section-header">
-                <span class="section-tag">Blogs</span>
-                <h2 class="section-title">Technical Blog Posts</h2>
-                <p class="section-subtitle">Deep dives into AI observability, cloud operations, and systems management on the AWS blog</p>
-            </div>
+            <p class="kicker mono reveal">BLOGS</p>
+            <h2 class="display-title reveal">Technical writing, <span class="hl">150K+ views.</span></h2>
+            <p class="section-lede reveal">Deep dives into AI observability, cloud operations, and systems management on the AWS blog and re:Post Knowledge Center.</p>
             <div class="blog-grid">
-                <article class="blog-card">
-                    <time class="blog-date">November 2025</time>
-                    <h3 class="blog-title">2025 Top 10 Announcements for AWS Cloud Operations</h3>
-                    <p class="blog-excerpt">Comprehensive overview of the most significant AWS Cloud Operations announcements in 2025.</p>
-                    <a href="https://aws.amazon.com/blogs/mt/2025-top-10-announcements-for-aws-cloud-operations/" class="blog-link" target="_blank" rel="noopener">Read Article &rarr;</a>
+                <article class="blog-card reveal">
+                    <time class="mono">Nov 2025</time>
+                    <h3>2025 Top 10 Announcements for AWS Cloud Operations</h3>
+                    <p>The most significant AWS Cloud Operations announcements of 2025.</p>
+                    <a href="https://aws.amazon.com/blogs/mt/2025-top-10-announcements-for-aws-cloud-operations/" target="_blank" rel="noopener" class="text-link">Read Article &rarr;</a>
                 </article>
-                <article class="blog-card">
-                    <time class="blog-date">September 2025</time>
-                    <h3 class="blog-title">Simplifying Log Management using Amazon CloudWatch Logs Centralization</h3>
-                    <p class="blog-excerpt">Learn how to streamline multi-account and multi-region log management with CloudWatch Logs centralization.</p>
-                    <a href="https://aws.amazon.com/blogs/mt/simplifying-log-management-using-amazon-cloudwatch-logs-centralization/" class="blog-link" target="_blank" rel="noopener">Read Article &rarr;</a>
+                <article class="blog-card reveal">
+                    <time class="mono">Sep 2025</time>
+                    <h3>Simplifying Log Management using CloudWatch Logs Centralization</h3>
+                    <p>Streamline multi-account and multi-region log management.</p>
+                    <a href="https://aws.amazon.com/blogs/mt/simplifying-log-management-using-amazon-cloudwatch-logs-centralization/" target="_blank" rel="noopener" class="text-link">Read Article &rarr;</a>
                 </article>
-                <article class="blog-card">
-                    <time class="blog-date">September 2025</time>
-                    <h3 class="blog-title">Optimizing metrics ingestion with Amazon Managed Service for Prometheus</h3>
-                    <p class="blog-excerpt">Best practices for optimizing metrics ingestion and reducing costs with Amazon Managed Service for Prometheus.</p>
-                    <a href="https://aws.amazon.com/blogs/mt/optimizing-metrics-ingestion-with-amazon-managed-service-for-prometheus/" class="blog-link" target="_blank" rel="noopener">Read Article &rarr;</a>
+                <article class="blog-card reveal">
+                    <time class="mono">Sep 2025</time>
+                    <h3>Optimizing metrics ingestion with Amazon Managed Service for Prometheus</h3>
+                    <p>Best practices for optimizing ingestion and reducing costs.</p>
+                    <a href="https://aws.amazon.com/blogs/mt/optimizing-metrics-ingestion-with-amazon-managed-service-for-prometheus/" target="_blank" rel="noopener" class="text-link">Read Article &rarr;</a>
                 </article>
-                <article class="blog-card">
-                    <time class="blog-date">August 2025</time>
-                    <h3 class="blog-title">Enhance your AIOps: Introducing Amazon CloudWatch and Application Signals MCP servers</h3>
-                    <p class="blog-excerpt">Discover how MCP servers enhance AIOps capabilities with CloudWatch and Application Signals integration.</p>
-                    <a href="https://aws.amazon.com/blogs/mt/enhance-your-aiops-introducing-amazon-cloudwatch-and-application-signals-mcp-servers/" class="blog-link" target="_blank" rel="noopener">Read Article &rarr;</a>
+                <article class="blog-card reveal">
+                    <time class="mono">Aug 2025</time>
+                    <h3>Enhance your AIOps: CloudWatch and Application Signals MCP servers</h3>
+                    <p>How MCP servers enhance AIOps with CloudWatch integration.</p>
+                    <a href="https://aws.amazon.com/blogs/mt/enhance-your-aiops-introducing-amazon-cloudwatch-and-application-signals-mcp-servers/" target="_blank" rel="noopener" class="text-link">Read Article &rarr;</a>
                 </article>
-                <article class="blog-card">
-                    <time class="blog-date">July 2025</time>
-                    <h3 class="blog-title">Launching Amazon CloudWatch generative AI observability (Preview)</h3>
-                    <p class="blog-excerpt">Introduction to CloudWatch's new generative AI observability capabilities for monitoring AI workloads.</p>
-                    <a href="https://aws.amazon.com/blogs/mt/launching-amazon-cloudwatch-generative-ai-observability-preview/" class="blog-link" target="_blank" rel="noopener">Read Article &rarr;</a>
+                <article class="blog-card reveal">
+                    <time class="mono">Jul 2025</time>
+                    <h3>Launching Amazon CloudWatch generative AI observability (Preview)</h3>
+                    <p>CloudWatch's new GenAI observability capabilities.</p>
+                    <a href="https://aws.amazon.com/blogs/mt/launching-amazon-cloudwatch-generative-ai-observability-preview/" target="_blank" rel="noopener" class="text-link">Read Article &rarr;</a>
                 </article>
-                <article class="blog-card">
-                    <time class="blog-date">June 2025</time>
-                    <h3 class="blog-title">Observing Agentic AI workloads using Amazon CloudWatch</h3>
-                    <p class="blog-excerpt">Comprehensive guide to monitoring and observing agentic AI workloads with CloudWatch agent.</p>
-                    <a href="https://aws.amazon.com/blogs/mt/observing-agentic-ai-workloads-using-amazon-cloudwatch/" class="blog-link" target="_blank" rel="noopener">Read Article &rarr;</a>
+                <article class="blog-card reveal">
+                    <time class="mono">Jun 2025</time>
+                    <h3>Observing Agentic AI workloads using Amazon CloudWatch</h3>
+                    <p>Monitoring agentic AI workloads with the CloudWatch agent.</p>
+                    <a href="https://aws.amazon.com/blogs/mt/observing-agentic-ai-workloads-using-amazon-cloudwatch/" target="_blank" rel="noopener" class="text-link">Read Article &rarr;</a>
                 </article>
-                <article class="blog-card">
-                    <time class="blog-date">January 2025</time>
-                    <h3 class="blog-title">Automate Systems Manager patching reports via email and Slack notifications</h3>
-                    <p class="blog-excerpt">Learn how to automate patching reports across your AWS Organization with email and Slack integration.</p>
-                    <a href="https://aws.amazon.com/blogs/mt/automate-systems-manager-patching-reports-via-email-and-slack-notifications-in-an-aws-organization/" class="blog-link" target="_blank" rel="noopener">Read Article &rarr;</a>
+                <article class="blog-card reveal">
+                    <time class="mono">Jan 2025</time>
+                    <h3>Automate Systems Manager patching reports via email and Slack</h3>
+                    <p>Automating patching reports across an AWS Organization.</p>
+                    <a href="https://aws.amazon.com/blogs/mt/automate-systems-manager-patching-reports-via-email-and-slack-notifications-in-an-aws-organization/" target="_blank" rel="noopener" class="text-link">Read Article &rarr;</a>
                 </article>
-                <article class="blog-card">
-                    <time class="blog-date">December 2024</time>
-                    <h3 class="blog-title">Troubleshooting AWS Systems Manager patching with Amazon Bedrock</h3>
-                    <p class="blog-excerpt">Discover how Amazon Bedrock's automated recommendations simplify Systems Manager patching troubleshooting.</p>
-                    <a href="https://aws.amazon.com/blogs/mt/troubleshooting-aws-systems-manager-patching-made-easy-with-amazon-bedrocks-automated-recommendations/" class="blog-link" target="_blank" rel="noopener">Read Article &rarr;</a>
+                <article class="blog-card reveal">
+                    <time class="mono">Dec 2024</time>
+                    <h3>Troubleshooting Systems Manager patching with Amazon Bedrock</h3>
+                    <p>Bedrock's automated recommendations for patch troubleshooting.</p>
+                    <a href="https://aws.amazon.com/blogs/mt/troubleshooting-aws-systems-manager-patching-made-easy-with-amazon-bedrocks-automated-recommendations/" target="_blank" rel="noopener" class="text-link">Read Article &rarr;</a>
                 </article>
-                <article class="blog-card">
-                    <time class="blog-date">August 2024</time>
-                    <h3 class="blog-title">Automate your Multicloud operations with AWS Systems Manager and AWS Lambda</h3>
-                    <p class="blog-excerpt">Learn how to extend AWS Systems Manager capabilities to manage multicloud environments using Lambda.</p>
-                    <a href="https://aws.amazon.com/blogs/mt/automate-your-multicloud-operations-with-aws-systems-manager-and-aws-lambda/" class="blog-link" target="_blank" rel="noopener">Read Article &rarr;</a>
+                <article class="blog-card reveal">
+                    <time class="mono">Aug 2024</time>
+                    <h3>Automate Multicloud operations with Systems Manager and Lambda</h3>
+                    <p>Extending Systems Manager to manage multicloud environments.</p>
+                    <a href="https://aws.amazon.com/blogs/mt/automate-your-multicloud-operations-with-aws-systems-manager-and-aws-lambda/" target="_blank" rel="noopener" class="text-link">Read Article &rarr;</a>
                 </article>
-                <article class="blog-card">
-                    <time class="blog-date">April 2024</time>
-                    <h3 class="blog-title">Automate incident reports from AWS Systems Manager Incident Manager</h3>
-                    <p class="blog-excerpt">Streamline incident management by automating report generation from Systems Manager Incident Manager.</p>
-                    <a href="https://aws.amazon.com/blogs/mt/automate-incident-reports-from-aws-systems-manager-incident-manager/" class="blog-link" target="_blank" rel="noopener">Read Article &rarr;</a>
+                <article class="blog-card reveal">
+                    <time class="mono">Apr 2024</time>
+                    <h3>Automate incident reports from Incident Manager</h3>
+                    <p>Automating report generation from Systems Manager Incident Manager.</p>
+                    <a href="https://aws.amazon.com/blogs/mt/automate-incident-reports-from-aws-systems-manager-incident-manager/" target="_blank" rel="noopener" class="text-link">Read Article &rarr;</a>
+                </article>
+                <article class="blog-card reveal">
+                    <time class="mono">AWS re:Post</time>
+                    <h3>Why is my EC2 Windows instance missing a patch after a successful Patch Manager operation?</h3>
+                    <p>Diagnosing missing patches: OS applicability, baseline configuration, superseded updates, and WSUS availability.</p>
+                    <a href="https://repost.aws/knowledge-center/ssm-troubleshoot-missing-kb-patch" target="_blank" rel="noopener" class="text-link">Read Article &rarr;</a>
+                </article>
+                <article class="blog-card reveal">
+                    <time class="mono">AWS re:Post</time>
+                    <h3>Troubleshooting EC2 Windows patching issues with AWS-RunPatchBaseline</h3>
+                    <p>Resolving Patch Manager failures: S3 endpoint connectivity, invalid tokens, and Windows Update errors.</p>
+                    <a href="https://repost.aws/knowledge-center/ssm-ec2-windows-patching-issues" target="_blank" rel="noopener" class="text-link">Read Article &rarr;</a>
                 </article>
             </div>
         </div>
+        <a href="#work-samples" class="scroll-hint section-hint" aria-label="Scroll to next section"><span class="scroll-pill"></span></a>
     </section>
 
-    <!-- Work Samples Section -->
-    <section id="samples" class="section">
+    <!-- Work Samples -->
+    <section id="work-samples" class="section">
         <div class="container">
-            <div class="section-header">
-                <span class="section-tag">Work Samples</span>
-                <h2 class="section-title">Open Source &amp; Reference Architectures</h2>
-                <p class="section-subtitle">Workshops, best practices guides, and code samples I contribute to</p>
-            </div>
+            <p class="kicker mono reveal">WORK SAMPLES</p>
+            <h2 class="display-title reveal">Open source &amp; <span class="hl">reference architectures.</span></h2>
+            <p class="section-lede reveal">Workshops, best practices guides, and code samples I contribute to.</p>
             <div class="samples-grid">
-                <a href="https://catalog.workshops.aws/observability/en-US" target="_blank" rel="noopener" class="sample-card">
-                    <div class="sample-card-top">
-                        <span class="sample-type workshop">Workshop</span>
-                        <span class="sample-stat">60K+ users</span>
-                    </div>
-                    <h4 class="sample-card-title">One Observability Workshop</h4>
-                    <p class="sample-card-desc">End-to-end AWS observability from infrastructure monitoring to AI observability.</p>
+                <a href="https://catalog.workshops.aws/observability/en-US" target="_blank" rel="noopener" class="sample-card reveal">
+                    <div class="sample-top mono"><span class="sample-type type-workshop">WORKSHOP</span><span class="sample-stat">60K+ users</span></div>
+                    <h3>One Observability Workshop</h3>
+                    <p>End-to-end AWS observability from infrastructure monitoring to AI observability.</p>
                 </a>
-                <a href="https://catalog.workshops.aws/getting-started-with-com/en-US/multicloud-operations" target="_blank" rel="noopener" class="sample-card">
-                    <div class="sample-card-top">
-                        <span class="sample-type workshop">Workshop</span>
-                    </div>
-                    <h4 class="sample-card-title">Centralized Multicloud Operations Management</h4>
-                    <p class="sample-card-desc">Manage multicloud environments using AWS Systems Manager.</p>
+                <a href="https://catalog.workshops.aws/getting-started-with-com/en-US/multicloud-operations" target="_blank" rel="noopener" class="sample-card reveal">
+                    <div class="sample-top mono"><span class="sample-type type-workshop">WORKSHOP</span></div>
+                    <h3>Centralized Multicloud Operations</h3>
+                    <p>Manage multicloud environments using AWS Systems Manager.</p>
                 </a>
-                <a href="https://aws-observability.github.io/observability-best-practices/" target="_blank" rel="noopener" class="sample-card">
-                    <div class="sample-card-top">
-                        <span class="sample-type guide">Guide</span>
-                        <span class="sample-stat">250K+ views/yr</span>
-                    </div>
-                    <h4 class="sample-card-title">AWS Observability Best Practices</h4>
-                    <p class="sample-card-desc">Comprehensive best practices for metrics, logs, traces, and AI workload monitoring.</p>
+                <a href="https://aws-observability.github.io/observability-best-practices/" target="_blank" rel="noopener" class="sample-card reveal">
+                    <div class="sample-top mono"><span class="sample-type type-guide">GUIDE</span><span class="sample-stat">250K+ views/yr</span></div>
+                    <h3>AWS Observability Best Practices</h3>
+                    <p>Best practices for metrics, logs, traces, and AI workload monitoring.</p>
                 </a>
-                <a href="https://aws-samples.github.io/cloud-operations-best-practices/" target="_blank" rel="noopener" class="sample-card">
-                    <div class="sample-card-top">
-                        <span class="sample-type guide">Guide</span>
-                    </div>
-                    <h4 class="sample-card-title">AWS Cloud Operations Best Practices</h4>
-                    <p class="sample-card-desc">Reference architectures and operational patterns for cloud operations at scale.</p>
+                <a href="https://aws-samples.github.io/cloud-operations-best-practices/" target="_blank" rel="noopener" class="sample-card reveal">
+                    <div class="sample-top mono"><span class="sample-type type-guide">GUIDE</span></div>
+                    <h3>AWS Cloud Operations Best Practices</h3>
+                    <p>Reference architectures and operational patterns for cloud ops at scale.</p>
                 </a>
-                <a href="https://github.com/aws-samples/one-observability-demo" target="_blank" rel="noopener" class="sample-card">
-                    <div class="sample-card-top">
-                        <span class="sample-type github">GitHub</span>
-                    </div>
-                    <h4 class="sample-card-title">One Observability Demo</h4>
-                    <p class="sample-card-desc">IaC, sample apps, and instrumentation examples for AWS observability.</p>
+                <a href="https://github.com/aws-samples/one-observability-demo" target="_blank" rel="noopener" class="sample-card reveal">
+                    <div class="sample-top mono"><span class="sample-type type-github">GITHUB</span></div>
+                    <h3>One Observability Demo</h3>
+                    <p>IaC, sample apps, and instrumentation examples for AWS observability.</p>
                 </a>
-                <a href="https://github.com/aws-samples/sample-agentic-ai-python-application-with-amazon-cloudwatch" target="_blank" rel="noopener" class="sample-card">
-                    <div class="sample-card-top">
-                        <span class="sample-type github">GitHub</span>
-                    </div>
-                    <h4 class="sample-card-title">Agentic AI Python App with CloudWatch</h4>
-                    <p class="sample-card-desc">Observe agentic AI workloads using Amazon CloudWatch.</p>
+                <a href="https://github.com/aws-samples/sample-agentic-ai-python-application-with-amazon-cloudwatch" target="_blank" rel="noopener" class="sample-card reveal">
+                    <div class="sample-top mono"><span class="sample-type type-github">GITHUB</span></div>
+                    <h3>Agentic AI Python App with CloudWatch</h3>
+                    <p>Observe agentic AI workloads using Amazon CloudWatch.</p>
                 </a>
-                <a href="https://github.com/aws-samples/sample-amazon-cloudwatch-generative-ai-observability" target="_blank" rel="noopener" class="sample-card">
-                    <div class="sample-card-top">
-                        <span class="sample-type github">GitHub</span>
-                    </div>
-                    <h4 class="sample-card-title">CloudWatch Generative AI Observability</h4>
-                    <p class="sample-card-desc">GenAI observability capabilities with Amazon CloudWatch.</p>
+                <a href="https://github.com/aws-samples/sample-amazon-cloudwatch-generative-ai-observability" target="_blank" rel="noopener" class="sample-card reveal">
+                    <div class="sample-top mono"><span class="sample-type type-github">GITHUB</span></div>
+                    <h3>CloudWatch Generative AI Observability</h3>
+                    <p>GenAI observability capabilities with Amazon CloudWatch.</p>
                 </a>
-                <a href="https://github.com/awslabs/agentcore-samples/tree/main/01-tutorials/06-AgentCore-observability/03-advanced-concepts/02-data-protection" target="_blank" rel="noopener" class="sample-card">
-                    <div class="sample-card-top">
-                        <span class="sample-type github">GitHub</span>
-                    </div>
-                    <h4 class="sample-card-title">Amazon Bedrock AgentCore Observability: Data Protection</h4>
-                    <p class="sample-card-desc">Advanced data protection patterns for AI agent observability.</p>
+                <a href="https://github.com/awslabs/agentcore-samples/tree/main/01-tutorials/06-AgentCore-observability/03-advanced-concepts/02-data-protection" target="_blank" rel="noopener" class="sample-card reveal">
+                    <div class="sample-top mono"><span class="sample-type type-github">GITHUB</span></div>
+                    <h3>AgentCore Observability: Data Protection</h3>
+                    <p>Advanced data protection patterns for AI agent observability.</p>
                 </a>
             </div>
         </div>
+        <a href="#credentials" class="scroll-hint section-hint" aria-label="Scroll to next section"><span class="scroll-pill"></span></a>
     </section>
 
-    <!-- Credentials Section -->
-    <section id="credentials" class="section section-alt">
+    <!-- Credentials -->
+    <section id="credentials" class="section section-tinted">
         <div class="container">
-            <div class="section-header">
-                <span class="section-tag">Credentials</span>
-                <h2 class="section-title">Awards &amp; Certifications</h2>
+            <p class="kicker mono reveal">CREDENTIALS</p>
+            <h2 class="display-title reveal">Awards &amp; <span class="hl">certifications.</span></h2>
+
+            <h3 class="sub-label mono reveal">CERTIFICATIONS</h3>
+            <div class="cred-grid">
+                <div class="cred-card reveal">
+                    <div class="cred-media">
+                        <img src="images/sa-pro.png" alt="AWS Certified Solutions Architect - Professional" class="cred-badge">
+                    </div>
+                    <div class="cred-body">
+                        <h4>AWS Certified Solutions Architect &ndash; Professional</h4>
+                    <span class="cred-issuer mono">AWS Training and Certification</span>
+                    <p>Advanced expertise in designing technical strategies and solutions across platforms and providers.</p>
+                    </div>
+                </div>
+                <div class="cred-card reveal">
+                    <div class="cred-media">
+                        <img src="images/AI-foundational.png" alt="AWS AI Foundational" class="cred-badge">
+                    </div>
+                    <div class="cred-body">
+                        <h4>AWS AI Foundational (L100)</h4>
+                    <span class="cred-issuer mono">AWS Worldwide Field Enablement</span>
+                    <p>AI/ML and generative AI fundamentals, agentic AI, and responsible AI development practices.</p>
+                    </div>
+                </div>
+                <div class="cred-card reveal">
+                    <div class="cred-media">
+                        <img src="images/Microsoft professional.png" alt="Microsoft Professional Certificate in Data Science" class="cred-badge cred-badge-wide">
+                    </div>
+                    <div class="cred-body">
+                        <h4>Microsoft Professional Certificate in Data Science</h4>
+                    <span class="cred-issuer mono">Microsoft</span>
+                    <p>Data analysis, machine learning, and statistical modeling fundamentals.</p>
+                    </div>
+                </div>
             </div>
 
-            <h3 class="subsection-label">Certifications</h3>
-            <div class="credentials-grid">
-                <div class="credential-card">
-                    <img src="images/sa-pro.png" alt="AWS Certified Solutions Architect - Professional" class="credential-badge">
-                    <h4>AWS Certified Solutions Architect - Professional</h4>
-                    <span class="credential-issuer">AWS Training and Certification</span>
-                    <p>Advanced certification demonstrating expertise in designing technical strategies and solutions across multiple platforms and providers.</p>
+            <h3 class="sub-label mono reveal">AWARDS</h3>
+            <div class="cred-grid">
+                <div class="cred-card reveal">
+                    <div class="cred-media">
+                        <div class="cred-icon" aria-hidden="true">
+                        <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89 17 22l-5-3-5 3 1.523-9.11"/></svg>
+                    </div>
+                    </div>
+                    <div class="cred-body">
+                        <h4>2025 AWS Annual Award</h4>
+                    <span class="cred-issuer mono">Amazon Web Services</span>
+                    <p>Customer Obsession: transforming observability enablement, high-impact content, flagship sessions, and tooling that accelerated enterprise AI observability adoption.</p>
+                    </div>
                 </div>
-                <div class="credential-card">
-                    <img src="images/AI-foundational.png" alt="AWS AI Foundational" class="credential-badge">
-                    <h4>AWS AI Foundational (L100)</h4>
-                    <span class="credential-issuer">AWS Worldwide Field Enablement</span>
-                    <p>Foundational certification in AI/ML and generative AI, covering core concepts, agentic AI fundamentals, and responsible AI development practices.</p>
+                <div class="cred-card reveal">
+                    <div class="cred-media">
+                        <div class="cred-icon" aria-hidden="true">
+                        <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"/><path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"/><path d="M4 22h16"/><path d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22"/><path d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22"/><path d="M18 2H6v7a6 6 0 0 0 12 0V2Z"/></svg>
+                    </div>
+                    </div>
+                    <div class="cred-body">
+                        <h4>AWS AWSome Builder Award</h4>
+                    <span class="cred-issuer mono">Amazon Web Services</span>
+                    <p>Comprehensive playbook on Systems Manager Patch Policy, with insights into feature internals and implementation strategies.</p>
+                    </div>
                 </div>
-                <div class="credential-card">
-                    <img src="images/Microsoft professional.png" alt="Microsoft Professional Certificate in Data Science" class="credential-badge credential-badge-wide">
-                    <h4>Microsoft Professional Certificate in Data Science</h4>
-                    <span class="credential-issuer">Microsoft</span>
-                    <p>Professional certification in data science fundamentals, including data analysis, machine learning, and statistical modeling.</p>
+                <div class="cred-card reveal">
+                    <div class="cred-media">
+                        <img src="images/wise guru.png" alt="AWS Wise Guru Award" class="cred-badge">
+                    </div>
+                    <div class="cred-body">
+                        <h4>AWS Wise Guru Award</h4>
+                    <span class="cred-issuer mono">Amazon Web Services</span>
+                    <p>Impactful mentoring and training initiatives that enhance team knowledge, skills, and performance.</p>
+                    </div>
                 </div>
-            </div>
-
-            <h3 class="subsection-label">Awards</h3>
-            <div class="credentials-grid">
-                <div class="credential-card">
-                    <div class="credential-emoji">&#x1F31F;</div>
-                    <h4>2025 AWS Annual Award</h4>
-                    <span class="credential-issuer">Amazon Web Services</span>
-                    <p>Recognized for Customer Obsession, transforming AWS observability enablement, authoring high-impact technical content, delivering flagship conference sessions, and building tooling that accelerated enterprise adoption of AI observability at scale.</p>
-                </div>
-                <div class="credential-card">
-                    <div class="credential-emoji">&#x1F3C6;</div>
-                    <h4>AWS AWSome Builder Award</h4>
-                    <span class="credential-issuer">Amazon Web Services</span>
-                    <p>Recognized for creating a comprehensive playbook on AWS Systems Manager Patch Policy, providing insights into feature internals and implementation strategies.</p>
-                </div>
-                <div class="credential-card">
-                    <img src="images/wise guru.png" alt="AWS Wise Guru Award" class="credential-badge">
-                    <h4>AWS Wise Guru Award</h4>
-                    <span class="credential-issuer">Amazon Web Services</span>
-                    <p>Recognized for impactful mentoring and training initiatives that enhance team knowledge, skills, and overall performance.</p>
-                </div>
-                <div class="credential-card">
-                    <img src="images/knowledge champ.png" alt="AWS Knowledge Champ Award" class="credential-badge">
-                    <h4>AWS Knowledge Champ Award</h4>
-                    <span class="credential-issuer">Amazon Web Services</span>
-                    <p>Honored for exceptional curiosity and commitment to continuous improvement, elevating team expertise and enhancing customer experience.</p>
+                <div class="cred-card reveal">
+                    <div class="cred-media">
+                        <img src="images/knowledge champ.png" alt="AWS Knowledge Champ Award" class="cred-badge">
+                    </div>
+                    <div class="cred-body">
+                        <h4>AWS Knowledge Champ Award</h4>
+                    <span class="cred-issuer mono">Amazon Web Services</span>
+                    <p>Exceptional curiosity and continuous improvement, elevating team expertise and customer experience.</p>
+                    </div>
                 </div>
             </div>
         </div>
+        <a href="#contact" class="scroll-hint section-hint" aria-label="Scroll to next section"><span class="scroll-pill"></span></a>
     </section>
 
-    <!-- Contact Section -->
+    <!-- Contact -->
     <section id="contact" class="section">
-        <div class="container">
-            <div class="section-header">
-                <span class="section-tag">Connect</span>
-                <h2 class="section-title">Let's Build Something Together</h2>
-                <p class="section-subtitle">Interested in discussing cloud operations, AI observability, or speaking opportunities?</p>
-            </div>
-            <div class="contact-cards">
+        <div class="container contact-wrap">
+            <p class="kicker mono reveal">CONNECT</p>
+            <h2 class="display-title reveal">Let's build something <span class="hl">together.</span></h2>
+            <p class="section-lede reveal">Cloud operations, AI observability, or speaking opportunities: my inbox is open.</p>
+            <div class="contact-cards reveal">
                 <a href="https://github.com/sunkavar" class="contact-card" target="_blank" rel="noopener">
-                    <svg width="32" height="32" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+                    <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
                     <span class="contact-label">GitHub</span>
-                    <span class="contact-handle">@sunkavar</span>
+                    <span class="contact-handle mono">@sunkavar</span>
                 </a>
                 <a href="https://www.linkedin.com/in/raviteja-sunkavalli" class="contact-card" target="_blank" rel="noopener">
-                    <svg width="32" height="32" viewBox="0 0 24 24" fill="currentColor"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+                    <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
                     <span class="contact-label">LinkedIn</span>
-                    <span class="contact-handle">raviteja-sunkavalli</span>
+                    <span class="contact-handle mono">raviteja-sunkavalli</span>
                 </a>
             </div>
         </div>
@@ -590,26 +781,24 @@
 
     <!-- Footer -->
     <footer class="footer">
-        <div class="container">
-            <p>&copy; 2026 Raviteja Sunkavalli. Crafted with curiosity.</p>
+        <div class="container footer-inner">
+            <span class="mono">raviteja@aws:~$ exit</span>
+            <span>&copy; 2026 Raviteja Sunkavalli. Crafted with curiosity.</span>
         </div>
     </footer>
 
-    <!-- Scroll to Top -->
     <button class="scroll-top" id="scrollTop" aria-label="Scroll to top">&uarr;</button>
 
     <!-- Search Modal -->
-    <div class="search-overlay" id="searchOverlay">
+    <div class="search-overlay" id="searchOverlay" aria-hidden="true">
         <div class="search-modal" role="dialog" aria-label="Search">
-            <div class="search-input-wrapper">
-                <svg class="search-input-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
-                <input type="text" id="searchInput" class="search-input" placeholder="Search talks, blogs, credentials..." autocomplete="off" spellcheck="false">
-                <kbd class="search-esc">Esc</kbd>
+            <div class="search-input-wrap">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+                <input type="text" id="searchInput" class="search-input mono" placeholder="Search talks, blogs, work, credentials..." autocomplete="off" spellcheck="false">
+                <kbd class="search-esc mono">Esc</kbd>
             </div>
             <div class="search-results" id="searchResults">
-                <div class="search-empty" id="searchEmpty">
-                    <p class="search-empty-hint">Start typing to search across all content</p>
-                </div>
+                <p class="search-empty mono" id="searchEmpty">Start typing to search across all content</p>
             </div>
         </div>
     </div>
