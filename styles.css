@@ -1609,8 +1609,33 @@ html.dark .cred-media {
     .stat-grid { grid-template-columns: repeat(2, 1fr); }
     .skill-grid { grid-template-columns: repeat(2, 1fr); }
     .focus-cards { grid-template-columns: repeat(2, 1fr); }
-    .timeline { grid-template-columns: repeat(2, 1fr); }
-    .timeline::before { display: none; }
+    /* Vertical timeline on smaller screens */
+    .timeline {
+        display: flex;
+        flex-direction: column;
+        gap: 24px;
+        padding-top: 0;
+        padding-left: 28px;
+    }
+
+    .timeline::before {
+        top: 8px;
+        bottom: 8px;
+        left: 6px;
+        right: auto;
+        width: 2px;
+        height: auto;
+        background: linear-gradient(180deg, var(--cyan-500), var(--purple-600), var(--green-500));
+    }
+
+    .timeline::after { display: none; } /* wave is a hover effect; skip on touch layouts */
+
+    .timeline-item { padding-top: 0; }
+
+    .timeline-dot {
+        top: 3px;
+        left: -28px;
+    }
     .samples-grid, .cred-grid { grid-template-columns: repeat(2, 1fr); }
     .events-grid { grid-template-columns: repeat(2, 1fr); }
     .event-card.featured { grid-column: span 2; }
@@ -1669,7 +1694,7 @@ html.dark .cred-media {
     .about-grid { grid-template-columns: 1fr; }
     .about-photo-col { position: static; max-width: 300px; margin: 0 auto; }
     .focus-cards { grid-template-columns: 1fr; }
-    .timeline { grid-template-columns: 1fr; gap: 20px; }
+
 
     .events-grid, .blog-grid { grid-template-columns: 1fr; }
     .event-card.featured { grid-column: span 1; }
