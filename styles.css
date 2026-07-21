@@ -1355,6 +1355,27 @@ html.dark .theme-toggle .moon-icon { display: none; }
     color: var(--gray-500);
 }
 
+.footer-kiro {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    color: var(--gray-500);
+    transition: color 0.2s ease;
+}
+
+.footer-kiro svg { border-radius: 4px; }
+
+.footer-kiro strong {
+    font-weight: 600;
+    color: var(--gray-600);
+    transition: color 0.2s ease;
+}
+
+.footer-kiro:hover,
+.footer-kiro:hover strong {
+    color: #9046ff;
+}
+
 /* ---------- Scroll top ---------- */
 .scroll-top {
     position: fixed;
