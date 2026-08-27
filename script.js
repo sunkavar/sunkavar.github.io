@@ -351,6 +351,88 @@
         }
     });
 
+    /* ---------- Blog vertical scroll window (6 visible on desktop) ---------- */
+    var blogWindow = document.getElementById('blogWindow');
+
+    if (blogWindow) {
+        var blogPrev = document.getElementById('blogPrev');
+        var blogNext = document.getElementById('blogNext');
+        var blogProgress = document.getElementById('blogProgress');
+        var blogCountEl = document.getElementById('blogCount');
+        var blogCards = blogWindow.querySelectorAll('.blog-card');
+        var BLOG_GAP = 18;
+
+        if (blogCountEl) {
+            blogCountEl.textContent = blogCards.length + ' ARTICLES';
+        }
+
+        var blogCols = function () {
+            return getComputedStyle(blogWindow).gridTemplateColumns.split(' ').length;
+        };
+
+        /* Height of one row + gap = the scroll step */
+        var blogRowStep = function () {
+            var cols = blogCols();
+            if (blogCards.length > cols) {
+                return blogCards[cols].offsetTop - blogCards[0].offsetTop;
+            }
+            return blogWindow.clientHeight;
+        };
+
+        var updateBlogState = function () {
+            var max = blogWindow.scrollHeight - blogWindow.clientHeight;
+            var y = blogWindow.scrollTop;
+            blogPrev.disabled = y <= 4;
+            blogNext.disabled = y >= max - 4;
+            if (blogProgress) {
+                blogProgress.style.width = (max > 0 ? (y / max) * 100 : 100) + '%';
+            }
+        };
+
+        /* Size the window to show exactly 2 rows. On touch/mobile widths the
+           grid renders in full (no nested scroll area), so skip sizing. */
+        var sizeBlogWindow = function () {
+            blogWindow.style.height = '';
+
+            if (window.innerWidth <= 768) {
+                blogWindow.removeAttribute('tabindex');
+                return;
+            }
+
+            blogWindow.setAttribute('tabindex', '0');
+            var cols = blogCols();
+            var firstHidden = cols * 2;
+
+            if (blogCards.length > firstHidden) {
+                var inner = blogCards[firstHidden].offsetTop - blogCards[0].offsetTop - BLOG_GAP;
+                blogWindow.style.height = (inner + 8) + 'px'; /* + top/bottom padding */
+            }
+            updateBlogState();
+        };
+
+        blogPrev.addEventListener('click', function () {
+            blogWindow.scrollBy({ top: -blogRowStep(), behavior: prefersReducedMotion ? 'auto' : 'smooth' });
+        });
+
+        blogNext.addEventListener('click', function () {
+            blogWindow.scrollBy({ top: blogRowStep(), behavior: prefersReducedMotion ? 'auto' : 'smooth' });
+        });
+
+        blogWindow.addEventListener('scroll', updateBlogState, { passive: true });
+
+        var blogResizeTimer;
+        window.addEventListener('resize', function () {
+            clearTimeout(blogResizeTimer);
+            blogResizeTimer = setTimeout(sizeBlogWindow, 150);
+        });
+
+        sizeBlogWindow();
+        /* Re-measure once fonts settle so row heights are exact */
+        if (document.fonts && document.fonts.ready) {
+            document.fonts.ready.then(sizeBlogWindow);
+        }
+    }
+
     /* ---------- Search ---------- */
     var searchBtn = document.getElementById('searchBtn');
     var searchOverlay = document.getElementById('searchOverlay');
