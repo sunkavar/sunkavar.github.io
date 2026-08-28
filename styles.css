@@ -609,7 +609,7 @@ html.dark .theme-toggle .moon-icon { display: none; }
 /* ---------- Impact / Stats ---------- */
 .stat-grid {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(4, minmax(0, 1fr));
     gap: 16px;
 }
 
@@ -710,7 +710,7 @@ html.dark .theme-toggle .moon-icon { display: none; }
 .timeline {
     position: relative;
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(4, minmax(0, 1fr));
     gap: 28px;
     padding-top: 8px;
     margin-bottom: 24px;
@@ -721,7 +721,7 @@ html.dark .theme-toggle .moon-icon { display: none; }
     position: absolute;
     top: 14px;
     left: 7px;
-    right: calc(25% - 14px);
+    right: calc(25% - 28px); /* reach the center of the last dot */
     height: 2px;
     border-radius: 2px;
     background: linear-gradient(90deg, var(--cyan-500), var(--purple-600), var(--green-500));
@@ -737,7 +737,7 @@ html.dark .theme-toggle .moon-icon { display: none; }
     position: absolute;
     top: 13px;
     left: 7px;
-    right: calc(25% - 14px);
+    right: calc(25% - 28px); /* match the base line's end point */
     height: 4px;
     border-radius: 4px;
     background: linear-gradient(90deg,
@@ -869,7 +869,7 @@ html.dark .timeline-item:hover .timeline-badge {
 
 .focus-cards {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(4, minmax(0, 1fr));
     gap: 14px;
 }
 
@@ -982,7 +982,7 @@ html.dark .timeline-item:hover .timeline-badge {
 /* Skill expertise cards */
 .skill-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(3, minmax(0, 1fr));
     gap: 16px;
 }
 
@@ -1056,7 +1056,7 @@ html.dark .timeline-item:hover .timeline-badge {
 /* ---------- Speaking ---------- */
 .events-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(3, minmax(0, 1fr));
     gap: 20px;
 }
 
@@ -1159,7 +1159,7 @@ html.dark .timeline-item:hover .timeline-badge {
 .blog-window {
     position: relative;
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(3, minmax(0, 1fr));
     gap: 18px;
     overflow-y: auto;
     scroll-snap-type: y mandatory;
@@ -1286,7 +1286,7 @@ html.dark .timeline-item:hover .timeline-badge {
 /* ---------- Work Samples ---------- */
 .samples-grid {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(4, minmax(0, 1fr));
     gap: 16px;
 }
 
@@ -1347,7 +1347,7 @@ html.dark .timeline-item:hover .timeline-badge {
 /* ---------- Credentials ---------- */
 .cred-grid {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(4, minmax(0, 1fr));
     gap: 16px;
 }
 
@@ -1750,9 +1750,9 @@ html.dark .cred-media {
 
 /* ---------- Responsive ---------- */
 @media (max-width: 1024px) {
-    .stat-grid { grid-template-columns: repeat(2, 1fr); }
-    .skill-grid { grid-template-columns: repeat(2, 1fr); }
-    .focus-cards { grid-template-columns: repeat(2, 1fr); }
+    .stat-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .skill-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .focus-cards { grid-template-columns: repeat(2, minmax(0, 1fr)); }
     /* Vertical timeline on smaller screens */
     .timeline {
         display: flex;
@@ -1780,15 +1780,19 @@ html.dark .cred-media {
         top: 3px;
         left: -28px;
     }
-    .samples-grid, .cred-grid { grid-template-columns: repeat(2, 1fr); }
-    .events-grid { grid-template-columns: repeat(2, 1fr); }
+    .samples-grid, .cred-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .events-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
     .event-card.featured { grid-column: span 2; }
-    .blog-window { grid-template-columns: repeat(2, 1fr); }
+    .blog-window { grid-template-columns: repeat(2, minmax(0, 1fr)); }
     .about-grid { grid-template-columns: 260px 1fr; gap: 36px; }
 }
 
 @media (max-width: 768px) {
-    .section { padding: 80px 0; }
+    .section { padding: 56px 0; }
+
+    /* The animated scroll-hint pills between sections read as dead space
+       on a phone; scrolling is the default gesture there. */
+    .section-hint { display: none; }
 
     .nav-menu {
         position: fixed;
@@ -1840,9 +1844,10 @@ html.dark .cred-media {
     .focus-cards { grid-template-columns: 1fr; }
 
 
-    /* Blogs: no inner scroll on touch. Static 2-up grid of compact tiles. */
+    /* Blogs: no inner scroll on touch. Full-width compact rows so the
+       long technical titles stay readable instead of truncating. */
     .blog-window {
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: 1fr;
         gap: 10px;
         overflow: visible;
         scroll-snap-type: none;
@@ -1868,6 +1873,7 @@ html.dark .cred-media {
     .event-body p { display: none; }
     .event-body .text-link { font-size: 0.8rem; }
     .event-meta { flex-wrap: wrap; }
+    .event-type, .sample-type { white-space: nowrap; } /* pills never break internally */
 
     /* Technologies: icon + title + chips, no blurb */
     .skill-card { gap: 8px; }
@@ -1884,13 +1890,19 @@ html.dark .cred-media {
 @media (max-width: 520px) {
     .cred-grid { grid-template-columns: 1fr; }
 
-    /* Technologies and open source stay 2-up as compact tiles */
-    .samples-grid, .skill-grid { gap: 10px; }
+    /* Open source stays 2-up as compact tiles */
+    .samples-grid { gap: 10px; }
+    .sample-top { flex-wrap: wrap; }
+
+    /* Technologies: full-width stacked cards. The mono tech chips
+       (e.g. "OpenTelemetry / ADOT") are unbreakable pills that need
+       the full viewport width to wrap cleanly. */
+    .skill-grid { grid-template-columns: 1fr; gap: 10px; }
     .skill-icon-box { width: 36px; height: 36px; }
     .skill-tag { padding: 3px 9px; font-size: 0.62rem; }
 
     /* Stats stay a 2x2 grid: four compact tiles instead of a tall stack */
-    .stat-grid { grid-template-columns: repeat(2, 1fr); gap: 12px; }
+    .stat-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
     .stat-card { padding: 20px 14px; }
     .stat-icon svg { width: 22px; height: 22px; }
     .stat-card-value { font-size: 1.7rem; }
